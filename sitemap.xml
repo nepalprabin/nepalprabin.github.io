@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/nepalprabin/myblog/about.html</loc>
-    <lastmod>2022-12-28T08:51:11.469Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/about.html</loc>
+    <lastmod>2022-12-28T08:58:42.694Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/projects.html</loc>
-    <lastmod>2022-12-28T08:51:13.733Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/projects.html</loc>
+    <lastmod>2022-12-28T08:58:45.162Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/resume.html</loc>
-    <lastmod>2022-12-28T08:51:14.149Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/resume.html</loc>
+    <lastmod>2022-12-28T08:58:45.598Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-05-09-vggnet-architecture-explained.html</loc>
-    <lastmod>2022-12-28T08:51:14.653Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-05-09-vggnet-architecture-explained.html</loc>
+    <lastmod>2022-12-28T08:58:46.114Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2022-10-19-text-summarization-nlp.html</loc>
-    <lastmod>2022-12-28T08:51:15.217Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2022-10-19-text-summarization-nlp.html</loc>
+    <lastmod>2022-12-28T08:58:46.690Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-04-24-alexnet-architecture-explained.html</loc>
-    <lastmod>2022-12-28T08:51:15.677Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-04-24-alexnet-architecture-explained.html</loc>
+    <lastmod>2022-12-28T08:58:47.178Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-08-23-neural-style-transfer-and-its-working.html</loc>
-    <lastmod>2022-12-28T08:51:16.145Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-23-neural-style-transfer-and-its-working.html</loc>
+    <lastmod>2022-12-28T08:58:47.666Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html</loc>
-    <lastmod>2022-12-28T08:51:16.589Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html</loc>
+    <lastmod>2022-12-28T08:58:48.138Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-09-21-mobilenet-architecture-explained.html</loc>
-    <lastmod>2022-12-28T08:51:17.161Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-09-21-mobilenet-architecture-explained.html</loc>
+    <lastmod>2022-12-28T08:58:48.746Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2021-03-26-simclr-explained.html</loc>
-    <lastmod>2022-12-28T08:51:17.641Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-03-26-simclr-explained.html</loc>
+    <lastmod>2022-12-28T08:58:49.266Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2021-07-27-illustrated-vision-transformers.html</loc>
-    <lastmod>2022-12-28T08:51:18.109Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-07-27-illustrated-vision-transformers.html</loc>
+    <lastmod>2022-12-28T08:58:49.738Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html</loc>
-    <lastmod>2022-12-28T08:51:18.585Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html</loc>
+    <lastmod>2022-12-28T08:58:50.218Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-08-04-general-adversarial-networks-gans.html</loc>
-    <lastmod>2022-12-28T08:51:19.117Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-04-general-adversarial-networks-gans.html</loc>
+    <lastmod>2022-12-28T08:58:50.766Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html</loc>
-    <lastmod>2022-12-28T08:51:19.565Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html</loc>
+    <lastmod>2022-12-28T08:58:51.218Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-12-08-self-supervised-learning.html</loc>
-    <lastmod>2022-12-28T08:51:20.065Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-12-08-self-supervised-learning.html</loc>
+    <lastmod>2022-12-28T08:58:51.738Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html</loc>
-    <lastmod>2022-12-28T08:51:20.697Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html</loc>
+    <lastmod>2022-12-28T08:58:52.358Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/index.html</loc>
-    <lastmod>2022-12-28T08:51:21.349Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/index.html</loc>
+    <lastmod>2022-12-28T08:58:53.006Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nepalprabin/myblog/about1.html</loc>
-    <lastmod>2022-12-28T08:51:21.733Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/about1.html</loc>
+    <lastmod>2022-12-28T08:58:53.462Z</lastmod>
   </url>
 </urlset>
