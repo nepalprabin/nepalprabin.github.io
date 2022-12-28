@@ -17,3 +17,5 @@ format:
       dark: cyborg
       light: flatly
     css: styles.css
+execute:
+  freeze: auto
