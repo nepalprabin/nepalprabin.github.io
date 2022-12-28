@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2020-12-08">
+
+<title>The AI Blog - Self-supervised Learning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">The AI Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">Prabin Nepal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nepalprabin"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/prabin-nepal"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Self-supervised Learning</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">deep-learning</div>
+                <div class="quarto-category">self-supervised-learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 8, 2020</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>I have been exploring self-supervised learning and been through papers and blogs to understand it. Self-supervised learning is considered the next big thing in deep learning and why not! If there is a way to learn without providing labels, then this enables us to leverage a large amount of unlabeled data for our tasks. I am going to provide my understanding of self-supervised learning and will try to explain some papers about it.</p>
+<p>We have been familiar with supervised learning wherein we provide features and labels to train a model and the model uses those labels to learn from the features. But labeling data is not an easy task as it requires more time and manpower. There is a large amount of data being generated daily and is unlabeled. The generated data may be in the form of text, images, audio, or videos. Those data can be used for different purposes. But there is a catch. These data do not contain labels and it difficult to work on these sorts of data. Here comes self-supervised learning to the rescue.</p>
+<section id="so-what-is-self-supervised-learning-and-why-is-it-needed" class="level3">
+<h3 class="anchored" data-anchor-id="so-what-is-self-supervised-learning-and-why-is-it-needed">So what is self-supervised learning and why is it needed?</h3>
+<p>Self-supervised learning is a learning framework that does not use human-labeled datasets to learn a visual representation of the data also known as representation learning. We have been familiar with the task such as classification, detection, and segmentation where a model is trained in a supervised manner which is later used for unseen data. These tasks are normally trained for specific scenarios, for e.g, the ImageNet dataset contains 1000 categories and can only recognize those categories. For categories that are not included in the ImageNet dataset, new annotations need to be done which is an expensive task. Self-supervised makes learning easy as it requires only unlabeled data to formulate the learning task. For training models in a self-supervised manner with unlabeled data, one needs to frame a supervised learning task (also known as <em>*pre-text task</em>). These pre-text tasks can later be used for <em>**downstream</em> tasks such as image classification, object detection, and many more.</p>
+<p><em>*Pre-text task: These are the tasks that are used for pre-training<br>
+**Downstream task: These are the task that utilizes pre-trained model or components that can be used to perform tasks such as image recognition, segmentation.</em></p>
+<!-- ![](/images/self-supervised-learning.png) -->
+<div data-align="center">
+<img src="../images/self-supervised-learning.png">
+</div>
+<p align="center">
+A general pipeline of self-supervised learning (<a href="https://arxiv.org/pdf/1902.06162.pdf">source</a>)
+</p>
+</section>
+<section id="self-supervised-techniques-for-images" class="level2">
+<h2 class="anchored" data-anchor-id="self-supervised-techniques-for-images">Self-supervised Techniques for Images</h2>
+<p>Many ideas have been proposed for self-supervised learning on images. A more common methodology or workflow is to train a model in one or multiple pretext tasks with the use of unlabeled data and use that model to perform downstream tasks. Some of the proposed ideas of self-supervised techniques for images are summarized below:</p>
+<section id="rotation" class="level4">
+<h4 class="anchored" data-anchor-id="rotation">Rotation</h4>
+<p>To learn representation by predicting image rotations, <a href="https://arxiv.org/abs/1803.07728">Gidaris et al.</a> proposed an architecture where features are learned by training Convolution Nets to recognize rotations that are applied to the image before feeding to the network. This set of geometric transformations defines the classification pretext task that the model has to learn which can later be used for downstream tasks. Geometric transformation is made such that the image is rotated through 4 different angles (0, 90, 270, and 360). This way, our model has to predict one of the 4 transformations that are done on the image. To predict the task, our model has to understand the concept of objects such as their location, their type, and their pose.</p>
+<div data-align="center">
+<img src="../images/self-supervised-rotation.png">
+</div>
+<p align="center">
+Illustration of the self-supervised task proposed for semantic feature learning.<br>
+Given four possible geometric transformations, the 0, 90, 180, and 270 degrees rotations,<br>
+a ConvNet model was trained to recognize the rotation that is applied to the image that it gets as input. (<a href="https://arxiv.org/pdf/1803.07728.pdf">source</a>)
+</p>
+<p>More details at: <a href="https://arxiv.org/pdf/1803.07728.pdf">Unsupervised Representation Learning By Predicting Image Rotations</a></p>
+</section>
+<section id="exemplar" class="level4">
+<h4 class="anchored" data-anchor-id="exemplar">Exemplar</h4>
+<p>In Exemplar-CNN ( <a href="https://arxiv.org/abs/1406.6909">Dosovitskiy et al., 2015</a> ), a network is trained to discriminate between a set of surrogate classes. Each surrogate class is formed by applying random data augmentations such as translation, scaling, rotation, contrast and color shifts. While creating surrogate training data:</p>
+<ul>
+<li>N patches of size 32 x 32 pixels are randomly sampled from different images at varying positions. Since, we are interested in patches objects or parts of objects, random patches are sampled only from region containing considerable gradients.</li>
+<li>Each patch is applied with a variety of image transformations. All the resulting transformed patches are considered to be in same surrogate classes.</li>
+</ul>
+<p>The pretext task is to discriminate between the set of surrogate class.</p>
+<div data-align="center">
+<img src="../images/exemplarCNN-transformation.png">
+</div>
+<p align="center">
+Several random transformations applied to one of the<br>
+patches extracted from the STL unlabeled dataset. The original<br>
+patch is in the top left corner ( <a href="https://arxiv.org/pdf/1406.6909">source</a>)
+</p>
+<p>More details at: <a href="https://arxiv.org/pdf/1406.6909.pdf">Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</a></p>
+</section>
+<section id="jigsaw-puzzle" class="level4">
+<h4 class="anchored" data-anchor-id="jigsaw-puzzle">Jigsaw Puzzle</h4>
+<p>Another approach of learning visual representation from unlabeled dataset is by training a ConvNet model to solve Jigsaw puzzle as a pretext task which can be later used for downstream tasks. In Jigsaw puzzle task, model is trained to place 9 shuffled patches back to the original position. To place shuffled patches to original position, <a href="https://arxiv.org/pdf/1603.09246">Noroozi et al.</a> proposed a Context Free Network (CFN) which is a siamese CNN that uses shared weights. The patches are combined in a fully connected layer.</p>
+<div data-align="center">
+<img src="../images/jigsaw-puzzle.png">
+</div>
+<p align="center">
+Learning image representations by solving Jigsaw puzzles.<br>
+
+</p><ul align="center">
+<ol type="a">
+<li>The image from which the tiles (marked with green lines) are extracted. <br></li>
+<li>A puzzle obtained by shuffling the tiles. <br></li>
+<li>Determining the relative position between the central tile and the top two tiles from the left can be very challenging<br>
+<a href="https://arxiv.org/pdf/1603.09246.pdf" align="center">source</a>
+</li></ol></ul>
+<p></p>
+
+<p>From the set of defined puzzle permutations, one permutation is randomly picked to arrange those 9 patches as per that permutation. This results CFN to return a vector with a probability value for each index. Given those 9 tiles, there will be 9! = 362,880 possible permutations.&nbsp;This creates difficulty in jigsaw puzzles. To control this, the paper proposed to shuffle patches according to a predefined set of permutations and configured the model to predict a probability vector over all the indices in the set.</p>
+<div data-align="center">
+<img src="../images/cfn_architecture.png">
+</div>
+<p align="center">
+Context Free Network Architecture (<a href="https://arxiv.org/pdf/1603.09246.pdf">source)</a>
+</p>
+<p>More details at: <a href="https://arxiv.org/pdf/1603.09246.pdf">Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles</a></p>
+</section>
+<section id="relative-patch-location" class="level4">
+<h4 class="anchored" data-anchor-id="relative-patch-location">Relative Patch Location</h4>
+<p>This approach by <a href="https://arxiv.org/pdf/1505.05192">Doersch et al</a>, predicts position of second patch of the image that is relative to the first patch. For this pretext task, a network is fed with two input patches and is passed through several convolutional layers. The network produces an output with probability to each of eight image patches. This can be taken as a classification problem with 8 classes where the input patch is assigned to one of these 8 classes to be considered as relative patch to the input patch.</p>
+<div data-align="center">
+<img src="../images/context_prediction.png">
+</div>
+<p align="center">
+The algorithm receives two patches in one of these eight<br>
+possible spatial arrangements, without any context, and must then<br>
+classify which configuration was sampled (<a href="https://arxiv.org/pdf/1505.05192.pdf">source</a>)
+</p>
+<p>More details at: <a href="https://arxiv.org/pdf/1505.05192.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></p>
+<p>References:</p>
+<ul>
+<li><a href="https://amitness.com/2020/02/illustrated-self-supervised-learning/">The Illustrated Self-Supervised Learning</a></li>
+<li><a href="https://lilianweng.github.io/lil-log/2019/11/10/self-supervised-learning.html">Self-supervised Learning</a></li>
+<li><a href="https://arxiv.org/abs/1902.06162">Self-supervised Visual Feature Learning with Deep Neural Networks: A Survey</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="AlbertRapp/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

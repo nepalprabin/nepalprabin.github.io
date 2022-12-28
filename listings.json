@@ -1,0 +1,20 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/2022-10-19-text-summarization-nlp.html",
+      "/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html",
+      "/posts/2021-07-27-illustrated-vision-transformers.html",
+      "/posts/2021-03-26-simclr-explained.html",
+      "/posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html",
+      "/posts/2020-12-08-self-supervised-learning.html",
+      "/posts/2020-09-21-mobilenet-architecture-explained.html",
+      "/posts/2020-08-23-neural-style-transfer-and-its-working.html",
+      "/posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html",
+      "/posts/2020-08-04-general-adversarial-networks-gans.html",
+      "/posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html",
+      "/posts/2020-05-09-vggnet-architecture-explained.html",
+      "/posts/2020-04-24-alexnet-architecture-explained.html"
+    ]
+  }
+]
