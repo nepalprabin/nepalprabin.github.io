@@ -1,0 +1,84 @@
+---
+categories:
+  - machine-learning
+  - technical-interview
+  - deep-learning
+image: /images/interview.jpg
+date: "2023-01-04"
+title: Machine Learning Interview Questions
+draft: true
+---
+
+# Classic Machine Learning
+## 1. What's the tradeoff between bias and variance?
+Consider the dataset with features $X$ and labels $Y$. We need to generalize the relationship between $X$ and $Y$
+so that this relationship can predict the future values based on what it has already seen before. 
+A simple approach on modeling the relationship between $X$ and $Y$ can be drawing a straight line (linear regression) that shows the general trend of the data.
+
+We can measure the performance of our model using mean-squared error(MSE). MSE takes output values coming from the model and the original output.
+One of the important aspect we care while training the model is how it performs on unseen data i.e., on the test set. Here comes the concept of <code>overfitting</code> and <code>underfitting</code>. 
+
+While training the model, if our model's test error is higher than that of training error, then we can say that our model is underfitting the data. In another term,
+our model cannot capture the underlying relationships of the data (i.e., our model is less complex).
+
+Since, we underfit the data, we build more complex model that perfectly fits the training data i.e., we almost got zero training error for our model.
+Even while getting zero training error while training the model, we still gets more test error while using unseen data on the model. This suggets that our model is too complicated and
+it goes overfitting. Instead of learning the patterns of the data, our model memorized the noises present in the data. 
+
+With this, our test error is the result of both underfiting and overfitting of the data. We need to find a way to related with each other.
+Mean squared error(MSE) can be decomposed into three parts (error due to bias, error due to variance, and error due to noise):
+$${Error = Bias^2 * variance * noise}$$ or,
+$$Error(x)=(E[\hat{f}​(x)]−f(x))2+E[(\hat{f}​(x)−E[\hat{f}​(x)])2]+Noise$$
+
+<code>Bias</code> represents the difference between average prediction and true values.
+$$Bias^2(x) = (E[\hat{f}(x)] - f(x))^2$$
+For underfitting models, majority of error comes from bias.
+
+<code>Variance</code> measures how much predictions vary for a given data point.
+$$Variance(x) = E[(\hat{f}(x) - E[\hat{f}(x)])^2]$$
+Complex models (Overfitting models) shows more errors from variance.
+
+We need to find a balance between bias and variance to find an ideal fit model that can learn meaningful patterns from the data and also
+work well on unseen data. So, by trading some bias for variance (i.e., increasing model complexity to make it ideal enough) we can find a balanced model for our dataset.
+[Ref.](https://mlu-explain.github.io/bias-variance/)
+
+[Another good resource](https://datascience.stackexchange.com/questions/37345/what-is-the-meaning-of-term-variance-in-machine-learning-model)
+
+## 2. What is gradient descent?
+Gradient descent is an optimization algorithm used to minimize objective function $J(\theta)$ that is parameterized by model's parameters $\theta \epsilon \mathbb{R^d}$ by updating parameters in the opposite direction
+of objective function $\nabla_\theta J(\theta)$ w.r.t the parameters.
+
+Gradient descent algorithm does not work on all the functions. A function needs to be differentiable and convex to be compatible with gradient descent.
+A function is differentiable if it has derivative at each point in its domain. 
+
+## 3. Regularization in machine learning and its uses.
+Regularization is a technique used in machine learning to prevent overfitting. Overfitting occurs when a model becomes too complex and is able to fit the noise in the training data rather than the underlying pattern. 
+Regularization helps to keep the model simple by adding a penalty term to the loss function that the model is trying to optimize. This penalty term, called a regularization term, discourages the model from assigning too much weight to any one feature. 
+Two common types of regularization are L1 and L2 regularization.
+
+  - #### L1 Regularization
+    L1 regularization, also known as Lasso regularization, adds a penalty term to the loss function that is proportional to the absolute value of the weights. 
+    The regularization term is defined as the sum of the absolute values of the weights, multiplied by a scalar value called the regularization strength or regularization parameter. 
+    This results in shrinking the less important feature’s coefficient to exactly zero and therefore remove some feature altogether. 
+    
+      This method can be useful in feature selection because it tends to produce sparse models, where only a subset of the input features are used to make predictions. 
+    L1 regularization is also less sensitive to outliers than L2 regularization.
+  
+  - ### L2 Regularization
+    L2 regularization, also known as Ridge regularization, adds a penalty term to the loss function that is proportional to the square of the weights. 
+    The regularization term is defined as the sum of the squares of the weights, multiplied by a scalar value called the regularization strength or regularization parameter. 
+    
+    This method tries to keep all the feature weights as small as possible but unlike L1 regularization it will not set any feature weight to zero. This means L2 regularization will keep all the features, but reduce the magnitude of the weights. 
+    L2 regularization helps to prevent overfitting by adding a bias to the model, which can make it more robust to small variations in the training data. It is also less prone to producing sparse models compared to L1 regularization.
+
+## 4. Common ways to prevent overfitting?
+    - Data Augmentation
+    - Early Stopping
+    - Dropout
+    - L1 and L2 Regularization
+    - Ensembling
+
+## 5. Parametric vs non-parametric models.
+  
+
+## 

@@ -4,7 +4,7 @@ aliases:
 categories:
   - NLP
   - deep-learning
-image: /images/Screen Shot 2022-11-12 at 3.25.26 PM.png
+image: /images/text-summarization.jpg
 date: "2022-10-19"
 title: Text Summarization NLP
 ---
