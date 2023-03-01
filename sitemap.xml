@@ -1,87 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nepalprabin.github.io/myblog/resume.html</loc>
-    <lastmod>2023-03-01T19:44:01.728Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html</loc>
+    <lastmod>2023-03-01T19:46:44.908Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-05-09-vggnet-architecture-explained.html</loc>
-    <lastmod>2023-03-01T19:44:02.132Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html</loc>
+    <lastmod>2023-03-01T19:46:45.420Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html</loc>
-    <lastmod>2023-03-01T19:44:02.475Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-04-general-adversarial-networks-gans.html</loc>
+    <lastmod>2023-03-01T19:46:45.868Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html</loc>
-    <lastmod>2023-03-01T19:44:02.917Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-12-08-self-supervised-learning.html</loc>
+    <lastmod>2023-03-01T19:46:46.288Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-12-08-self-supervised-learning.html</loc>
-    <lastmod>2023-03-01T19:44:03.317Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2022-10-19-text-summarization-nlp.html</loc>
+    <lastmod>2023-03-01T19:46:46.752Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2021-07-27-illustrated-vision-transformers.html</loc>
-    <lastmod>2023-03-01T19:44:03.669Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html</loc>
+    <lastmod>2023-03-01T19:46:47.148Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-04-24-alexnet-architecture-explained.html</loc>
-    <lastmod>2023-03-01T19:44:04.028Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-03-26-simclr-explained.html</loc>
+    <lastmod>2023-03-01T19:46:47.588Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2023-01-14-machine-learning-interview-questions.html</loc>
-    <lastmod>2023-03-01T19:44:04.362Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-05-09-vggnet-architecture-explained.html</loc>
+    <lastmod>2023-03-01T19:46:48.004Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2022-12-20-an-intuituve-explanation-of-whisper.html</loc>
-    <lastmod>2023-03-01T19:44:04.670Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-08-23-neural-style-transfer-and-its-working.html</loc>
+    <lastmod>2023-03-01T19:46:48.400Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html</loc>
-    <lastmod>2023-03-01T19:44:05.023Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2023-01-08-linear-regression.html</loc>
+    <lastmod>2023-03-01T19:46:49.036Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html</loc>
-    <lastmod>2023-03-01T19:44:05.342Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-09-21-mobilenet-architecture-explained.html</loc>
+    <lastmod>2023-03-01T19:46:49.520Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2021-03-26-simclr-explained.html</loc>
-    <lastmod>2023-03-01T19:44:05.705Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2020-04-24-alexnet-architecture-explained.html</loc>
+    <lastmod>2023-03-01T19:46:50.296Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2023-01-08-linear-regression.html</loc>
-    <lastmod>2023-03-01T19:44:06.000Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-07-27-illustrated-vision-transformers.html</loc>
+    <lastmod>2023-03-01T19:46:50.688Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2022-10-19-text-summarization-nlp.html</loc>
-    <lastmod>2023-03-01T19:44:06.397Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html</loc>
+    <lastmod>2023-03-01T19:46:51.108Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-09-21-mobilenet-architecture-explained.html</loc>
-    <lastmod>2023-03-01T19:44:06.792Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/about1.html</loc>
+    <lastmod>2023-03-01T19:46:51.452Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-08-04-general-adversarial-networks-gans.html</loc>
-    <lastmod>2023-03-01T19:44:07.468Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/projects.html</loc>
+    <lastmod>2023-03-01T19:46:51.780Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/posts/2020-08-23-neural-style-transfer-and-its-working.html</loc>
-    <lastmod>2023-03-01T19:44:07.799Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/about.html</loc>
+    <lastmod>2023-03-01T19:46:52.108Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/projects.html</loc>
-    <lastmod>2023-03-01T19:44:08.109Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/index.html</loc>
+    <lastmod>2023-03-01T19:46:52.636Z</lastmod>
   </url>
   <url>
-    <loc>https://nepalprabin.github.io/myblog/index.html</loc>
-    <lastmod>2023-03-01T19:44:08.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nepalprabin.github.io/myblog/about.html</loc>
-    <lastmod>2023-03-01T19:44:08.853Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nepalprabin.github.io/myblog/about1.html</loc>
-    <lastmod>2023-03-01T19:44:09.149Z</lastmod>
+    <loc>https://github.com/nepalprabin/nepalprabin.github.io/resume.html</loc>
+    <lastmod>2023-03-01T19:46:52.968Z</lastmod>
   </url>
 </urlset>
