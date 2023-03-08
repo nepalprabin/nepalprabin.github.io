@@ -1,0 +1,52 @@
+---
+categories:
+  - machine-learning
+  - NLP
+  - deep-learning
+image: /images/foundation_models.png
+date: "2023-03-01"
+title: Foundation Models
+draft: true
+---
+
+# What are Foundation Models (FMs)?
+
+Foundation models refer to large neural network models that are pre-trained on vast amounts of diverse data using self-supervised learning techniques, 
+such as language modeling, image recognition, or video analysis. These models can then be fine-tuned or adapted for various downstream tasks, such as natural language processing (NLP), 
+computer vision, speech recognition, and many others.
+
+The main advantage of foundation models is that they can capture complex patterns and relationships in the data, enabling them to learn rich representations that can be leveraged for a wide range of tasks. 
+Moreover, since these models are pre-trained on massive datasets, they require less labeled data for fine-tuning than traditional machine learning models, which makes them more efficient and scalable. 
+Some of the most popular foundation models include BERT, GPT, and CLIP.
+
+The significance of Foundation Models can be summarized in two terms: <code>Emergence</code> and <code>Homogenization</code>. 
+Emergence refers to the ability of the model to automatically learn and infer complex patterns and relationships from large amounts of data whereas
+Homogenity is the standardization of methodology or algorithms used to build machine learning models accross different applications. This can make it easier
+to create and apply these models to various tasks but it can also create a risk of failure if there is a problem with underlying methodology or algorithm.
+
+
+![](/images/emergence_homogenity.png)
+<p align="center"> Fig. Emergence and Homogenization </p>
+
+The history of AI has been characterized by a growing reliance on emergence and homogenization. Machine learning allows the system to automatically infer how to perform a task based on examples, 
+while deep learning enables the emergence of high-level features used for prediction. Foundation models take this even further, allowing for advanced functionalities like in-context learning to emerge. 
+At the same time, these techniques homogenize learning algorithms, model architectures, and even the models themselves, making them more standardized across different applications.
+
+
+# Origin of Foundation Models
+Foundation models are enable by transfer learning. Transfer learning is a machine learning technique where a model trained on one task or domain is adapted or fine-tuned for a different but related task or domain. 
+In transfer learning, the knowledge and features learned by a pre-trained model are leveraged to improve the performance of a new model on a different task.
+
+<blockquote>
+For example, a model that has been trained on a large dataset for image classification can be used as a starting point for a related task, such as object detection or segmentation, with less labeled data. The pre-trained model can be fine-tuned by training it on a smaller dataset of labeled images for the specific task. This allows the model to learn relevant features and patterns from the new data, while also retaining the general features learned from the pre-training data, leading to better performance on the new task.
+</blockquote>
+
+In deep learning, the dominant paradigm is pretraining, where a where a model is first trained on a large, diverse dataset using self-supervised learning techniques, before being fine-tuned on a specific task with less labeled data. 
+The pretraining step enables the model to learn rich representations of the data, capturing general patterns and relationships in the data that can be leveraged for downstream tasks.
+
+<blockquote>
+Foundation models are powerful transfer learners due to their scale. Ingredients for scaling includes: 
+computer hardware improvements,
+Transformer architectures which leverages parallelism, and
+Growing availability of training data
+</blockquote>
