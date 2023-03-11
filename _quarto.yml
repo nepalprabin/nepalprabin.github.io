@@ -6,7 +6,7 @@ website:
   description: "Personal website of Prabin Nepal"
   site-url: https://nepalprabin.github.io
   repo-url: https://github.com/nepalprabin/nepalprabin.github.io
-  google-analytics: "G-Y7YLFF5F90"
+  google-analytics: "G-5HCLVN4PVB"
   open-graph: true
   navbar:
     right:
