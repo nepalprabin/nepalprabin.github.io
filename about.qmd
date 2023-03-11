@@ -1,29 +1,111 @@
 ---
-title: "Prabin Nepal"
-image: profilepp.jpg
-about:
-  template: solana
-  image-width: 20em
-  image-shape: round
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/prabin-nepal/
-    - icon: github
-      text: Github
-      href: https://github.com/nepalprabin/
-
+title: "About"
 ---
-I am a graduate student in Computer Science at the [University of South Dakota](https://www.usd.edu/arts-and-sciences/computer-science/graduate). 
-I have experience working as a Machine Learning Engineer focusing on Computer Vision and Natural Language Processing (NLP). 
-I also have experience in Full Stack Software Development with Django as backend and Vuejs/React as Front-end.
 
-# Major interests:
-* Software architecture
-* Python
-* Artificial Intelligence
-* Medical Imaging
-* Self-supervised Learning
-* Natural Language Processing
-* Learning new languages
-* Writing
+I am currently a Computer Science graduate student at the University of South Dakota.
+
+### Interests
+
+- Software Development
+- Machine Learning
+- Data Science
+- Large Language Models (LLMs)
+- System Design
+
+### Education
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University of South Dakota**  
+MS in Computer Science  
+:::
+::: {.text-end}
+South Dakota, SD  
+May 2023
+:::
+:::
+
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Visvesvaraya Technological University (VTU)**  
+Bachelor in Computer Science and Engineering
+:::
+::: {.text-end}
+Bangalore, India  
+Graduated July 2019
+:::
+:::
+
+### Experience
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University of South Dakota**  
+:::
+::: {.text-end}
+August 2022 - present
+:::
+:::
+*Graduate Assistant/Data Analyst*
+
+- <code>Machine Learning</code>: Creating a predictive model using machine learning algorithms to identify at-risk children
+and prevent incidents of abuse.
+- <code>Scripting</code>: Developing automated scripts using Python that merges data from different sources and reducing
+manual time of 1 hour to 10 minutes.
+- <code>Analysis</code>: Analyzing data to develop sustainable solution to reduce child sexual abuse and maltreatment in
+South Dakota.
+- <code>Reporting</code>: Implementing interactive dashboards and reports using Tableau to analyze child abuse rates.
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Ensemble Matrix**  
+:::
+::: {.text-end}
+Nov 2020 - Dec 2021
+:::
+:::
+*Python Software Engineer*
+
+- <code>APIs</code>: Developed backend APIs that support customer-facing product features using Django, GraphQL, and EC2.
+- <code>Async workloads</code>: Worked on backend systems that handle asynchronous workloads such as data ingestion
+and egestion from third-party ecommerce systems, using ECS, SQS, and Airflow.
+- <code>Infrastructure as Code</code>: Utilized Infrastructure as Code to model existing and new AWS resources as code for
+faster iterative deployments, specifically using AWS EC2.
+- <code>CI/CD</code>: Designed and implemented a comprehensive CI/CD pipeline for multiple projects from scratch, utilizing
+AWS EC2 and Github Actions.
+- <code>Tests</code>: Established code testing procedures from scratch, including linting and type checking, using pytest and
+SQLAlchemy.
+- <code>Structured Logging</code>: Revamped logging across multiple projects to improve bug discoverability, utilizing
+Datadog and Sentry for structured logging.
+- <code>Reporting</code>: Added analytics report generation tools for customers to gain more insights into business metrics,
+using Pandas and Django for ETL and reporting.
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Bitpoint Pvt. Ltd.**  
+:::
+::: {.text-end}
+August 2019 - Nov 2020
+:::
+:::
+*Python Software Engineer*
+
+- <code>APIs</code>: Created back-end APIs for medical entrance preparation application.
+- <code>3rd Party Integrations</code>: Created payment integrations to let users buy subscriptions for the application.
+- <code>Product Features</code>: Worked on the back end to add features like progress tracking, question recommendation,
+comments, notification emails, etc. (Django, celery, SqlAlchemy, Postgres, pytest).
+- <code>Authorization</code>: Added JWT authorization to user API.
+
+
+### Teaching
+
+#### Achiever Gropus
+::: {.d-flex .justify-content-between}
+::: {}
+Python Data Analysis and Web development using Django
+:::
+::: {.text-end}
+2021
+:::
+:::

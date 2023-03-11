@@ -1,0 +1,7 @@
+{{< include about.qmd >}}
+{{< include projects.md >}}
+{{< include skills.md >}}
+
+---
+title: "Resume"
+---
