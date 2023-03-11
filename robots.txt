@@ -1,1 +1,1 @@
-Sitemap: https://github.com/nepalprabin/nepalprabin.github.io/sitemap.xml
+Sitemap: https://nepalprabin.github.io/sitemap.xml

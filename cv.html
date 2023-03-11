@@ -73,10 +73,11 @@ gtag('config', 'G-Y7YLFF5F90', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Prabin Nepal - Resume">
+<meta property="og:description" content="I am currently a Computer Science graduate student at the University of South Dakota.">
 <meta property="og:site-name" content="Prabin Nepal">
 </head>
 
-<body style="width:100%; height:100%; margin:0;" class="nav-fixed fullcontent">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,16 +145,127 @@ gtag('config', 'G-Y7YLFF5F90', { 'anonymize_ip': true});
 
 </header>
 
+<p>I am currently a Computer Science graduate student at the University of South Dakota.</p>
+<section id="interests" class="level3">
+<h3 class="anchored" data-anchor-id="interests">Interests</h3>
+<ul>
+<li>Software Development</li>
+<li>Machine Learning</li>
+<li>Data Science</li>
+<li>Large Language Models (LLMs)</li>
+<li>System Design</li>
+</ul>
+</section>
+<section id="education" class="level3">
+<h3 class="anchored" data-anchor-id="education">Education</h3>
+<div class="d-flex justify-content-between">
+<div>
+<p><strong>University of South Dakota</strong><br>
+MS in Computer Science</p>
+</div>
+<div class="text-end">
+<p>South Dakota, SD<br>
+May 2023</p>
+</div>
+</div>
+<div class="d-flex justify-content-between">
+<div>
+<p><strong>Visvesvaraya Technological University (VTU)</strong><br>
+Bachelor in Computer Science and Engineering</p>
+</div>
+<div class="text-end">
+<p>Bangalore, India<br>
+Graduated July 2019</p>
+</div>
+</div>
+</section>
+<section id="experience" class="level3">
+<h3 class="anchored" data-anchor-id="experience">Experience</h3>
+<div class="d-flex justify-content-between">
+<div>
+<p><strong>University of South Dakota</strong></p>
+</div>
+<div class="text-end">
+<p>August 2022 - present</p>
+</div>
+</div>
+<p><em>Graduate Assistant/Data Analyst</em></p>
+<ul>
+<li><code>Machine Learning</code>: Creating a predictive model using machine learning algorithms to identify at-risk children and prevent incidents of abuse.</li>
+<li><code>Scripting</code>: Developing automated scripts using Python that merges data from different sources and reducing manual time of 1 hour to 10 minutes.</li>
+<li><code>Analysis</code>: Analyzing data to develop sustainable solution to reduce child sexual abuse and maltreatment in South Dakota.</li>
+<li><code>Reporting</code>: Implementing interactive dashboards and reports using Tableau to analyze child abuse rates.</li>
+</ul>
+<div class="d-flex justify-content-between">
+<div>
+<p><strong>Ensemble Matrix</strong></p>
+</div>
+<div class="text-end">
+<p>Nov 2020 - Dec 2021</p>
+</div>
+</div>
+<p><em>Python Software Engineer</em></p>
+<ul>
+<li><code>APIs</code>: Developed backend APIs that support customer-facing product features using Django, GraphQL, and EC2.</li>
+<li><code>Async workloads</code>: Worked on backend systems that handle asynchronous workloads such as data ingestion and egestion from third-party ecommerce systems, using ECS, SQS, and Airflow.</li>
+<li><code>Infrastructure as Code</code>: Utilized Infrastructure as Code to model existing and new AWS resources as code for faster iterative deployments, specifically using AWS EC2.</li>
+<li><code>CI/CD</code>: Designed and implemented a comprehensive CI/CD pipeline for multiple projects from scratch, utilizing AWS EC2 and Github Actions.</li>
+<li><code>Tests</code>: Established code testing procedures from scratch, including linting and type checking, using pytest and SQLAlchemy.</li>
+<li><code>Structured Logging</code>: Revamped logging across multiple projects to improve bug discoverability, utilizing Datadog and Sentry for structured logging.</li>
+<li><code>Reporting</code>: Added analytics report generation tools for customers to gain more insights into business metrics, using Pandas and Django for ETL and reporting.</li>
+</ul>
+<div class="d-flex justify-content-between">
+<div>
+<p><strong>Bitpoint Pvt. Ltd.</strong></p>
+</div>
+<div class="text-end">
+<p>August 2019 - Nov 2020</p>
+</div>
+</div>
+<p><em>Python Software Engineer</em></p>
+<ul>
+<li><code>APIs</code>: Created back-end APIs for medical entrance preparation application.</li>
+<li><code>3rd Party Integrations</code>: Created payment integrations to let users buy subscriptions for the application.</li>
+<li><code>Product Features</code>: Worked on the back end to add features like progress tracking, question recommendation, comments, notification emails, etc. (Django, celery, SqlAlchemy, Postgres, pytest).</li>
+<li><code>Authorization</code>: Added JWT authorization to user API.</li>
+</ul>
+</section>
+<section id="teaching" class="level3">
+<h3 class="anchored" data-anchor-id="teaching">Teaching</h3>
+<section id="achiever-gropus" class="level4">
+<h4 class="anchored" data-anchor-id="achiever-gropus">Achiever Gropus</h4>
+<div class="d-flex justify-content-between">
+<div>
+<p>Python Data Analysis and Web development using Django</p>
+</div>
+<div class="text-end">
+<p>2021</p>
+</div>
+</div>
+</section>
+</section>
+<section id="projects" class="level2">
+<h2 class="anchored" data-anchor-id="projects">Projects</h2>
+<section id="stanford-nlp-lecture-transcription-using-openais-whisper" class="level3">
+<h3 class="anchored" data-anchor-id="stanford-nlp-lecture-transcription-using-openais-whisper">1. <a href="http://3.14.28.154/">Stanford NLP Lecture Transcription using OpenAI’s Whisper</a></h3>
+<p>Whisper is an automatic speech recognition (ASR) model trained on hours of multilingual and multitask supervised data. It is implemented as an encoder-decoder transformer architecture where audio are splitted into 30 seconds of chunks, converted into a log-Mel spectrogram, and then passed into an encoder. The decoder is trained to predict the corresponding text caption, intermixed with special tokens that direct the single model to perform tasks such as language identification, phrase-level timestamps, multilingual speech transcription, and to-English speech translation. For more info about whisper, read <a href="https://openai.com/blog/whisper/">here</a>.</p>
+<p>I used whisper model to transcribe Stanford NLP lectures into corresponding text captions. <a href="http://3.14.28.154/">Here</a> is the result of the transcribed lectures. This web app is build using Flask and deployed on AWS EC2 instance. You can find transcribed audio file in the form of text <a href="https://github.com/nepalprabin/whisper-webapp/blob/main/Stanford_NLP_lecture_transcripts.zip">here</a>.</p>
+</section>
+</section>
+<section id="custom-named-entity-recognizer-for-clinical-data" class="level2">
+<h2 class="anchored" data-anchor-id="custom-named-entity-recognizer-for-clinical-data">2. <a href="https://nepalprabin-clinical-ner-visualizer-jb4wt5.streamlit.app/">Custom Named Entity Recognizer for clinical data</a></h2>
+<p>Named Entity Recognition (NER) is a subtask of Natural Language Processing (NLP) that involves identifying and categorizing named entities in text.</p>
+<p>I have developed a custom named entity recognition (NER) model for clinical data using the spacy framework and deployed it using Streamlit. The model is capable of identifying various entities such as diseases, treatments, medications, and anatomical locations from clinical text data. The model classifies entities based on three classes: <code>‘MEDICINE’</code>, <code>“MEDICALCONDITION”</code>, and <code>“PATHOGEN”</code>. The dataset was used from <a href="https://www.kaggle.com/datasets/finalepoch/medical-ner">kaggle</a>. You can try the application on this <a href="https://nepalprabin-clinical-ner-visualizer-jb4wt5.streamlit.app/">link</a></p>
+</section>
+<section id="skills" class="level2">
+<h2 class="anchored" data-anchor-id="skills">Skills</h2>
+<p><code>Languages</code>: Python, JavaScript</p>
+<p><code>Databases</code>: MySQL, Postgresql, MongoDB</p>
+<p><code>Frameworks and Libraries</code>: Pytorch, Tensorflow, Huggingface Transformers, OpenCV, SpaCy, Django, FastAPI, Vuejs</p>
+<p><code>Tools</code>: Git, Linux, Docker, AWS (EC2, S3, Lambda function, Sagemaker), Hydra, Model Packaging (ONXX)</p>
 
 
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Prabin's Resume</title>
-
-  
-    <iframe src="https://docs.google.com/gview?url=https://github.com/nepalprabin/nepalprabin.github.io/raw/master/Resume_Prabin_Nepal.pdf&amp;embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
-  
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
