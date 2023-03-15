@@ -5,7 +5,7 @@ categories:
   - deep-learning
 date: "2023-03-05"
 title: Brief overview of GPT-4
-draft: true
+draft: false
 ---
 
 Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its capabilities.
