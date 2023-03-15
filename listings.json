@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2023-05-15-gpt4-summary.html",
       "/posts/2022-10-19-text-summarization-nlp.html",
       "/posts/2021-10-25-autocorrect-and-minimum-edit-distance.html",
       "/posts/2021-07-27-illustrated-vision-transformers.html",
