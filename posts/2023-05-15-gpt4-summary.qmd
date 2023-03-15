@@ -1,0 +1,106 @@
+---
+categories:
+  - machine-learning
+  - NLP
+  - deep-learning
+date: "2023-03-05"
+title: Brief overview of GPT-4
+draft: true
+---
+
+Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its capabilities.
+In addition to this, ChatGPT has captured the attention of the internet at large due to its remarkable ability to generate fluent and natural-sounding responses across a wide range of prompts and language tasks.
+Due to this, it became fastest growing consumer application in the history, just two months after the launch. ChatGPT is fine-tuned from a model in the GPT-3.5 series and can write articles, jokes, poetrys in response to the prompt.
+Though powerful, there have also been concerns raised about the potential risks associated with it and other large language models (LLMs), particularly with respect to issues such as bias, and misinformation. One of the major concern for LLMs
+is that it suffers from <code>hallucination</code>.
+
+<blockquote>
+Hallucination refers to the phenomenon where the model generates responses that are not supported by the input or are inconsistent with reality.
+This can happen when the model generates text that appears to be coherent and relevant, but is not grounded in any factual or contextual information.
+</blockquote>
+
+A year after releasing ChatGPT, OpenAI released GPT-4 (on 14th March, an improved version of GPT-3.5 model that supports multimodal data. It is capable of processing text and image data to generate textual data.
+It achieved human level performance on various professional and academic benchmarks. On a simulated bar exam, GPT-4 achieved a score that falls on the top 10%
+of the exam takes. In contrast, the score achieved by previous model GPT-3.5 fell on bottom 10%. This shows the level of improvement achieved by the latest version of GPT.
+It is also important to mention that the model was not specifically trained on these exams. A minority of problems were seen by model while training.
+
+## Capabilities of GPT-4
+Though the report does not provide any details about architecture (including model size), hardware, training compute,
+dataset construction, or training method, a demo run by <code>[Greg Brockman](https://twitter.com/gdb)</code> (President and Co-founder, OpenAI) after the release of GPT-4 shows various capabilities of the model.
+
+You can watch the GPT-4 Developer Livestream replay here:
+{{< video https://www.youtube.com/embed/outcGtbnMuQ >}}
+
+#### 1. Supports longer context
+GPT-4 is capable of handling over 25,000 words of text, that enables its usage in situations that require the creation of lengthy content, extended dialogues, or the exploration and analysis of extensive documents.
+
+#### 2. Hand-drawn pencil drawing turned into a fully functional website
+GPT-4 is also capable of handling visual input, such as hand-drawn pencil drawings that looks like a mock design, and generating code to create a website.
+The generated output is mind blowing. Another important aspect is the accuracy by which the model is able to perform OCR task with such messy handwritings.
+
+![](/images/gpt-4_website_result.png){fig-align="center"}
+<p align="center"> Fig. Left is the mock design and right is the website created using the code generated from gpt4-model. [source](https://twitter.com/gdb/status/1635826383141376002) </p>
+
+
+#### 3. GPT-4 can describe the image.
+As opposed to text on prompts (on previous GPT version), this model accepts inputs containing both text and images. It lets user specify any language or vision tasks.
+GPT-4 displays comparable skills on various types of content, such as documents containing both textual and visual elements like photographs, diagrams, or screenshots, as it does when dealing with text-only inputs.
+
+![](/images/gpt-4_visual_description.png){fig-align="center" width=50%}
+
+<p align="center"> Example prompt demonstrating GPT-4’s visual input capability. The prompt consists of a
+question about an image with multiple panels which GPT-4 is able to answer. [source](https://cdn.openai.com/papers/gpt-4.pdf) </p>
+
+#### 4. Human level performance on professional and academic benchmarks
+GPT outperforms the previous state-of-the-art models on various standardized exams, such as GRE, SAT, BAR, and APs, along with other research benchmarks like MMLU, HellaSWAG, and TextQA.
+GPT-4 outperforms the English language performance of GPT 3.5 and existing language models ([Chinchilla](https://arxiv.org/abs/2203.15556) and [PaLM](https://arxiv.org/abs/2204.02311)), including low-resource languages such as Latvian, Welsh, and
+Swahili.
+
+::: {layout="[25,-2,20]" layout-valign="bottom"}
+
+![](/images/gpt-4_academic_benchmarks.png){height=500px}
+
+![](/images/gpt-4_academic_professional_perf.png){height=200px}
+
+:::
+
+## Limitations of GPT-4
+ - Though there has been a tremendous improvement as compared to previous models, GPT-4 has similar limitations as earlier GPT models. It is not fully
+reliable and hallucinates.
+- Since GPT-4 is trained on the data available till September 2021, it lacks knowledge of the events occured after that time period.
+ ![](/images/gpt-4_responses.png)
+
+
+## Risks and mitigations
+The prompts entered by the users are not always safe. When providing unsafe inputs to the model, it may generate undesirable text like commiting crimes.
+To mitigate these risks, various approaches like Adversarial Testing, Model Assisted Safety Pipeline are carried out. Using domain experts and their findings, model is improved
+to refuse request for unsafe inputs like synthesizing dangerous chemicals.
+
+::: {layout="[25,-2,20]" layout-valign="bottom"}
+
+![](/images/gpt-4_risks_and_mitigations_1.png)
+
+![](/images/gpt-4_risks_and_mitigations_2.png)
+
+                       Examples of how unsafe inputs are refused by the model
+
+:::
+
+## Conclusion
+The recent advancements in GPT-4, have proven to outperform existing language models in a collection of NLP tasks. 
+The improved capabilities of GPT-4 are not limited to the English language, as predictable scaling allows for accurate predictions in many different languages.
+However, the increased capabilities of GPT-4 also present new risks, which require significant work to understand and improve its safety and alignment. 
+Nevertheless, GPT-4 marks a significant milestone towards the development of broadly useful and safely deployed AI systems.
+
+
+## References:
+ - [GPT-4 Technical Report](https://cdn.openai.com/papers/gpt-4.pdf)
+ - [GPT-4 Blog Post](https://openai.com/research/gpt-4)
+ - [chat.openai.com](chat.openai.com)
+
+
+## <code>PS</code>
+While GPT-4 may have stolen the headlines, it was not the only new technology on display. 
+AnthropicAI unveiled [Claude](https://www.anthropic.com/index/introducing-claude), next gen AI assistant can help with use cases including summarization, search, creative and collaborative writing, Q&A, coding, and more.
+Meanwhile, Google AI released [PaLM](https://developers.googleblog.com/2023/03/announcing-palm-api-and-makersuite.html), an entry point for Google's large language models with variety of applications.
+With these three new systems, the future of AI looks brighter than ever before.
