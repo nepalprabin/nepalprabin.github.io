@@ -3,7 +3,8 @@ categories:
   - machine-learning
   - NLP
   - deep-learning
-date: "2023-03-05"
+date: "2023-03-15"
+image: /images/gpt-4.jpeg
 title: Brief overview of GPT-4
 draft: false
 ---
