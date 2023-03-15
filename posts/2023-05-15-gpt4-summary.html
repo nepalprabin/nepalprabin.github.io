@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-03-05">
+
+<title>Prabin Nepal - Brief overview of GPT-4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5HCLVN4PVB"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5HCLVN4PVB', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Prabin Nepal - Brief overview of GPT-4">
+<meta property="og:description" content="Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its capabilities.">
+<meta property="og:site-name" content="Prabin Nepal">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Prabin Nepal</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nepalprabin"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/prabin-nepal"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Brief overview of GPT-4</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">machine-learning</div>
+                <div class="quarto-category">NLP</div>
+                <div class="quarto-category">deep-learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 5, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its capabilities. In addition to this, ChatGPT has captured the attention of the internet at large due to its remarkable ability to generate fluent and natural-sounding responses across a wide range of prompts and language tasks. Due to this, it became fastest growing consumer application in the history, just two months after the launch. ChatGPT is fine-tuned from a model in the GPT-3.5 series and can write articles, jokes, poetrys in response to the prompt. Though powerful, there have also been concerns raised about the potential risks associated with it and other large language models (LLMs), particularly with respect to issues such as bias, and misinformation. One of the major concern for LLMs is that it suffers from <code>hallucination</code>.</p>
+<blockquote class="blockquote">
+Hallucination refers to the phenomenon where the model generates responses that are not supported by the input or are inconsistent with reality. This can happen when the model generates text that appears to be coherent and relevant, but is not grounded in any factual or contextual information.
+</blockquote>
+<p>A year after releasing ChatGPT, OpenAI released GPT-4 (on 14th March, an improved version of GPT-3.5 model that supports multimodal data. It is capable of processing text and image data to generate textual data. It achieved human level performance on various professional and academic benchmarks. On a simulated bar exam, GPT-4 achieved a score that falls on the top 10% of the exam takes. In contrast, the score achieved by previous model GPT-3.5 fell on bottom 10%. This shows the level of improvement achieved by the latest version of GPT. It is also important to mention that the model was not specifically trained on these exams. A minority of problems were seen by model while training.</p>
+<section id="capabilities-of-gpt-4" class="level2">
+<h2 class="anchored" data-anchor-id="capabilities-of-gpt-4">Capabilities of GPT-4</h2>
+<p>Though the report does not provide any details about architecture (including model size), hardware, training compute, dataset construction, or training method, a demo run by <code><a href="https://twitter.com/gdb">Greg Brockman</a></code> (President and Co-founder, OpenAI) after the release of GPT-4 shows various capabilities of the model.</p>
+<p>You can watch the GPT-4 Developer Livestream replay here:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/outcGtbnMuQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="supports-longer-context" class="level4">
+<h4 class="anchored" data-anchor-id="supports-longer-context">1. Supports longer context</h4>
+<p>GPT-4 is capable of handling over 25,000 words of text, that enables its usage in situations that require the creation of lengthy content, extended dialogues, or the exploration and analysis of extensive documents.</p>
+</section>
+<section id="hand-drawn-pencil-drawing-turned-into-a-fully-functional-website" class="level4">
+<h4 class="anchored" data-anchor-id="hand-drawn-pencil-drawing-turned-into-a-fully-functional-website">2. Hand-drawn pencil drawing turned into a fully functional website</h4>
+<p>GPT-4 is also capable of handling visual input, such as hand-drawn pencil drawings that looks like a mock design, and generating code to create a website. The generated output is mind blowing. Another important aspect is the accuracy by which the model is able to perform OCR task with such messy handwritings.</p>
+<img src="../images/gpt-4_website_result.png" class="img-fluid" data-fig-align="center">
+<p align="center">
+Fig. Left is the mock design and right is the website created using the code generated from gpt4-model. <a href="https://twitter.com/gdb/status/1635826383141376002">source</a>
+</p>
+</section>
+<section id="gpt-4-can-describe-the-image." class="level4">
+<h4 class="anchored" data-anchor-id="gpt-4-can-describe-the-image.">3. GPT-4 can describe the image.</h4>
+<p>As opposed to text on prompts (on previous GPT version), this model accepts inputs containing both text and images. It lets user specify any language or vision tasks. GPT-4 displays comparable skills on various types of content, such as documents containing both textual and visual elements like photographs, diagrams, or screenshots, as it does when dealing with text-only inputs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/gpt-4_visual_description.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p align="center">
+Example prompt demonstrating GPT-4’s visual input capability. The prompt consists of a question about an image with multiple panels which GPT-4 is able to answer. <a href="https://cdn.openai.com/papers/gpt-4.pdf">source</a>
+</p>
+</section>
+<section id="human-level-performance-on-professional-and-academic-benchmarks" class="level4">
+<h4 class="anchored" data-anchor-id="human-level-performance-on-professional-and-academic-benchmarks">4. Human level performance on professional and academic benchmarks</h4>
+<p>GPT outperforms the previous state-of-the-art models on various standardized exams, such as GRE, SAT, BAR, and APs, along with other research benchmarks like MMLU, HellaSWAG, and TextQA. GPT-4 outperforms the English language performance of GPT 3.5 and existing language models (<a href="https://arxiv.org/abs/2203.15556">Chinchilla</a> and <a href="https://arxiv.org/abs/2204.02311">PaLM</a>), including low-resource languages such as Latvian, Welsh, and Swahili.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 53.2%;justify-content: center;">
+<p><img src="../images/gpt-4_academic_benchmarks.png" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.3%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 42.6%;justify-content: center;">
+<p><img src="../images/gpt-4_academic_professional_perf.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="limitations-of-gpt-4" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-gpt-4">Limitations of GPT-4</h2>
+<ul>
+<li>Though there has been a tremendous improvement as compared to previous models, GPT-4 has similar limitations as earlier GPT models. It is not fully reliable and hallucinates.</li>
+<li>Since GPT-4 is trained on the data available till September 2021, it lacks knowledge of the events occured after that time period. <img src="../images/gpt-4_responses.png" class="img-fluid"></li>
+</ul>
+</section>
+<section id="risks-and-mitigations" class="level2">
+<h2 class="anchored" data-anchor-id="risks-and-mitigations">Risks and mitigations</h2>
+<p>The prompts entered by the users are not always safe. When providing unsafe inputs to the model, it may generate undesirable text like commiting crimes. To mitigate these risks, various approaches like Adversarial Testing, Model Assisted Safety Pipeline are carried out. Using domain experts and their findings, model is improved to refuse request for unsafe inputs like synthesizing dangerous chemicals.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 53.2%;justify-content: center;">
+<p><img src="../images/gpt-4_risks_and_mitigations_1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.3%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 42.6%;justify-content: center;">
+<p><img src="../images/gpt-4_risks_and_mitigations_2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 53.2%;justify-content: center;">
+<pre><code>                   Examples of how unsafe inputs are refused by the model</code></pre>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.3%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The recent advancements in GPT-4, have proven to outperform existing language models in a collection of NLP tasks. The improved capabilities of GPT-4 are not limited to the English language, as predictable scaling allows for accurate predictions in many different languages. However, the increased capabilities of GPT-4 also present new risks, which require significant work to understand and improve its safety and alignment. Nevertheless, GPT-4 marks a significant milestone towards the development of broadly useful and safely deployed AI systems.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References:</h2>
+<ul>
+<li><a href="https://cdn.openai.com/papers/gpt-4.pdf">GPT-4 Technical Report</a></li>
+<li><a href="https://openai.com/research/gpt-4">GPT-4 Blog Post</a></li>
+<li><a href="chat.openai.com">chat.openai.com</a></li>
+</ul>
+</section>
+<section id="ps" class="level2">
+<h2 class="anchored" data-anchor-id="ps"><code>PS</code></h2>
+<p>While GPT-4 may have stolen the headlines, it was not the only new technology on display. AnthropicAI unveiled <a href="https://www.anthropic.com/index/introducing-claude">Claude</a>, next gen AI assistant can help with use cases including summarization, search, creative and collaborative writing, Q&amp;A, coding, and more. Meanwhile, Google AI released <a href="https://developers.googleblog.com/2023/03/announcing-palm-api-and-makersuite.html">PaLM</a>, an entry point for Google’s large language models with variety of applications. With these three new systems, the future of AI looks brighter than ever before.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="AlbertRapp/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
