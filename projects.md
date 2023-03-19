@@ -14,3 +14,11 @@ I have developed a custom named entity recognition (NER) model for clinical data
 The model is capable of identifying various entities such as diseases, treatments, medications, and anatomical locations from clinical text data.
 The model classifies entities based on three classes: <code>'MEDICINE'</code>, <code>"MEDICALCONDITION"</code>, and <code>"PATHOGEN"</code>. The dataset was used from [kaggle](https://www.kaggle.com/datasets/finalepoch/medical-ner).
 You can try the application on this [link](https://nepalprabin-clinical-ner-visualizer-jb4wt5.streamlit.app/)
+
+## 2. [Question Answering using Langchain and OpenAI](https://nepalprabin-langchain-qa-main-3ovr00.streamlit.app/)
+
+This application provides a simple example of how to build a question-answering system using Langchain and pre-trained language models from OpenAI and Streamlit.
+
+Langchain helps to build Large Language Models (LLMs) through composability. It helps to combine large language models with other sources of computation.
+
+I developed a question answering system using Langchain with OpenAI embeddings. Since, LLMs tends to have fixed context length, Langchain helps to eliminate this issue by introducing chains, where we can break the document into different chunks and run the chain on the whole document. In this application, when a user uploads a file, the contents are converted into embeddings using OpenAI embeddings and stored in Pinecone vector database. Storing embeddings this way, helps for faster retrieval of the embeddings. When a user enters the query, similarity search is conducted to retrieve the similar embeddings from the vector store and the langchain chain passes the formatted response to the LLM.
