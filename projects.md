@@ -15,7 +15,7 @@ The model is capable of identifying various entities such as diseases, treatment
 The model classifies entities based on three classes: <code>'MEDICINE'</code>, <code>"MEDICALCONDITION"</code>, and <code>"PATHOGEN"</code>. The dataset was used from [kaggle](https://www.kaggle.com/datasets/finalepoch/medical-ner).
 You can try the application on this [link](https://nepalprabin-clinical-ner-visualizer-jb4wt5.streamlit.app/)
 
-## 2. [Question Answering using Langchain and OpenAI](https://nepalprabin-langchain-qa-main-3ovr00.streamlit.app/)
+## 2. [Question Answering using Langchain and OpenAI](https://github.com/nepalprabin/chat-with-nlp-book-gpt)
 
 This application provides a simple example of how to build a question-answering system using Langchain and pre-trained language models from OpenAI and Streamlit.
 
