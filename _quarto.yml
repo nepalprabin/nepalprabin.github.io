@@ -10,12 +10,12 @@ website:
   open-graph: true
   navbar:
     right:
-      - about.qmd
+      # - about.qmd
       - projects.qmd
       - icon: github
         href: https://github.com/nepalprabin
-      - icon: linkedin
-        href: https://linkedin.com/in/prabin-nepal
+      # - icon: linkedin
+      # href: https://linkedin.com/in/prabin-nepal
 format:
   html:
     theme:

@@ -1,0 +1,105 @@
+---
+title: "About"
+---
+
+I am currently a Computer Science graduate student at the University of South Dakota.
+
+### Interests
+
+- Software Development
+- Machine Learning
+- Data Science
+- Large Language Models (LLMs)
+- System Design
+
+### Education
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University of South Dakota**  
+MS in Computer Science  
+:::
+::: {.text-end}
+South Dakota, SD  
+May 2023
+:::
+:::
+
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Visvesvaraya Technological University (VTU)**  
+Bachelor in Computer Science and Engineering
+:::
+::: {.text-end}
+Bangalore, India  
+Graduated July 2019
+:::
+:::
+
+### Experience
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University of South Dakota**  
+:::
+::: {.text-end}
+August 2022 - present
+:::
+:::
+*Graduate Assistant/Data Analyst*
+
+- <code>Machine Learning</code>: Creating a predictive model using machine learning algorithms to identify at-risk children
+and prevent incidents of abuse.
+- <code>Scripting</code>: Developing automated scripts using Python that merges data from different sources and reducing
+manual time of 1 hour to 10 minutes.
+- <code>Analysis</code>: Analyzing data to develop sustainable solution to reduce child sexual abuse and maltreatment in
+South Dakota.
+- <code>Reporting</code>: Implementing interactive dashboards and reports using Tableau to analyze child abuse rates.
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Ensemble Matrix**  
+:::
+::: {.text-end}
+Nov 2020 - Dec 2021
+:::
+:::
+*Machine Learning Engineer*
+
+- Reduced manual time by 50% by building an in-house annotation tool for data labeling using Python and
+Reactjs.
+- Achieved 83% accuracy on test data using Convolutional LSTM network using Pytorch on optical character
+recognition (OCR) task.
+- Improved dataset quality by 30% through in-house annotation tooling.
+- Applied siamese network to classify real and fake signatures, increasing accuracy by 5%.
+- Managed a team of 4-5 freelance annotators and interns.
+- Implemented backend APIs using FastAPI to make the model ready for production environment.
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Bitpoint Pvt. Ltd.**  
+:::
+::: {.text-end}
+August 2019 - Nov 2020
+:::
+:::
+*Machine Learning Engineer*
+
+- Developed a predictive pipeline using Python to track student progress.
+- Visualized student learning progress through Tableau dashboards.
+- Engineered question recommendation system using collaborative approach with an 80% accuracy rate,
+providing personalized question suggestions based on user activity.
+
+
+### Teaching
+
+#### Achiever Gropus
+::: {.d-flex .justify-content-between}
+::: {}
+Python Data Analysis and Web development using Django
+:::
+::: {.text-end}
+2021
+:::
+:::
