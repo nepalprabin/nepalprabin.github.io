@@ -2,7 +2,20 @@
 title: "About"
 ---
 
-I am currently a Computer Science graduate student at the University of South Dakota.
+Welcome to my about page!
+
+I am a passionate Computer Science graduate student with a keen interest in the fascinating fields of Machine Learning and Deep Learning. With over three years of experience as a dedicated Machine Learning Engineer, I have been fortunate enough to work on a diverse range of projects that have deepened my understanding and expertise in this rapidly evolving field.
+
+Currently, I am proudly contributing my skills and knowledge to a dynamic startup, where I am actively involved in developing their Minimum Viable Product (MVP) solution. As part of this endeavor, I am leveraging the power of large language models to create innovative and cutting-edge solutions that push the boundaries of what is possible in the world of natural language processing.
+
+My journey in the realm of Machine Learning began during my graduate studies, where I delved into the theoretical foundations and practical applications of this exciting domain. This academic background, coupled with my hands-on industry experience, has provided me with a well-rounded skill set and a deep understanding of the algorithms, frameworks, and techniques that power modern Machine Learning and Deep Learning systems.
+
+I believe that the potential of Machine Learning and Deep Learning is limitless, and I am continuously exploring new avenues to expand my knowledge and stay up to date with the latest advancements in the field. My passion for learning and my drive to solve complex problems through innovative solutions fuel my enthusiasm for every project I undertake.
+
+On this platform, I aim to share my insights, experiences, and learnings with fellow enthusiasts, researchers, and practitioners in the field. Whether you are a novice looking to dip your toes into the world of Machine Learning or an experienced professional seeking to stay ahead of the curve, I hope you find valuable information and inspiration within these pages.
+
+Thank you for visiting, and I look forward to embarking on this exciting journey together!
+
 
 ### Interests
 
@@ -109,3 +122,91 @@ Python Data Analysis and Web development using Django
 2021
 :::
 :::
+
+
+======================
+    Experience
+======================
+
+Name: [Your Name]
+Title: [Your Title/Position]
+Years of Experience: [Number of Years]
+
+Overview:
+[Write a concise overview of your professional experience, highlighting key accomplishments, skills, and areas of expertise.]
+
+Work Experience:
+
+1. Company Name: [Name of the Company]
+   Position: [Your Position]
+   Duration: [Start Date - End Date]
+
+   Description:
+   [Provide a brief description of your responsibilities, projects, and achievements during your tenure at the company.]
+
+2. Company Name: [Name of the Company]
+   Position: [Your Position]
+   Duration: [Start Date - End Date]
+
+   Description:
+   [Provide a brief description of your responsibilities, projects, and achievements during your tenure at the company.]
+
+Education:
+
+1. University Name: [Name of the University]
+   Degree: [Your Degree]
+   Duration: [Start Year - End Year]
+
+   Description:
+   [Write a brief description of your academic journey, highlighting relevant coursework, research projects, and notable achievements.]
+
+Skills:
+
+- [Skill 1]
+- [Skill 2]
+- [Skill 3]
+- [Skill 4]
+- [Skill 5]
+
+Certifications:
+
+- [Certification 1]
+- [Certification 2]
+- [Certification 3]
+
+======================
+    Projects
+======================
+
+1. Project Name: [Name of the Project]
+   Description:
+   [Provide a brief description of the project, highlighting its goals, methodologies, and outcomes.]
+
+2. Project Name: [Name of the Project]
+   Description:
+   [Provide a brief description of the project, highlighting its goals, methodologies, and outcomes.]
+
+======================
+    Achievements
+======================
+
+- [Achievement 1]
+- [Achievement 2]
+- [Achievement 3]
+
+======================
+    Publications
+======================
+
+- [Publication 1]
+- [Publication 2]
+- [Publication 3]
+
+======================
+    Contact
+======================
+
+Email: [Your Email Address]
+LinkedIn: [Your LinkedIn Profile URL]
+Website: [Your Website URL]
+
