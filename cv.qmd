@@ -1,4 +1,4 @@
-{{< include about2.qmd >}}
+{{< include about.qmd >}}
 {{< include projects.qmd >}}
 {{< include skills.md >}}
 
