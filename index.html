@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -37,19 +37,25 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d75320580429fd03ccc14abf5aea7e44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-03cff2e87a80ce85282700c0d3d2a4d3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,8 +64,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -101,59 +109,90 @@ gtag('js', new Date());
 gtag('config', 'G-5HCLVN4PVB', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="">
-<meta property="og:site-name" content="Prabin Nepal">
+<meta property="og:title" content="Prabin Nepal">
+<meta property="og:image" content="https://nepalprabin.github.io/images/ai_agents.png">
+<meta property="og:site_name" content="Prabin Nepal">
+<meta property="og:image:height" content="768">
+<meta property="og:image:width" content="1024">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Prabin Nepal</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/nepalprabin"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/nepalprabin"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/prabin-nepal"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/prabin-nepal"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="LLM">LLM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="NLP">NLP <span class="quarto-category-count">(4)</span></div><div class="category" data-category="computer-vision">computer-vision <span class="quarto-category-count">(6)</span></div><div class="category" data-category="deep-learning">deep-learning <span class="quarto-category-count">(12)</span></div><div class="category" data-category="machine-learning">machine-learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="self-supervised-learning">self-supervised-learning <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(16)</span></div><div class="category" data-category="TExN">LLM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TkxQ">NLP <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YWdlbnRz">agents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tcHV0ZXItdmlzaW9u">computer-vision <span class="quarto-category-count">(6)</span></div><div class="category" data-category="ZGVlcC1sZWFybmluZw==">deep-learning <span class="quarto-category-count">(12)</span></div><div class="category" data-category="bGxtcw==">llms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZS1sZWFybmluZw==">machine-learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2VsZi1zdXBlcnZpc2VkLWxlYXJuaW5n">self-supervised-learning <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -163,503 +202,513 @@ gtag('config', 'G-5HCLVN4PVB', { 'anonymize_ip': true});
 
 
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="machine-learning,NLP,deep-learning,LLM" data-listing-date-sort="1688446800000" data-listing-file-modified-sort="1688510211161" data-listing-reading-time-sort="8.15">
+<div class="quarto-post image-right" data-index="0" data-categories="bGxtcyUyQ2FnZW50cw==" data-listing-date-sort="1740873600000" data-listing-file-modified-sort="1740898760932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="799">
 <div class="thumbnail">
-<p><a href="./posts/2023-07-04-augmented-language-models.html"> <img src="./images/augmenting llms.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external"></a></p><a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external">
+<p><img loading="lazy" src="./images/ai_agents.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-07-04-augmented-language-models.html">
 <h3 class="no-anchor listing-title">
-Augmenting Large Language Models: Expanding Context and Enhancing Relevance
+<a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external">Huggingface AI Agents Quiz Solutions</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('bGxtcw=='); return false;">
+llms
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('YWdlbnRz'); return false;">
+agents
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external">I have been diving into AI agents through Huggingface’s AI Agents Course. This course offers a comprehensive understanding of how to build and deploy AI agents using the <code>smol…</code></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2025-03-02-huggingface-smolagents-solutions.html" class="no-external">
+<div class="listing-date">
+Mar 2, 2025
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="bWFjaGluZS1sZWFybmluZyUyQ05MUCUyQ2RlZXAtbGVhcm5pbmclMkNMTE0=" data-listing-date-sort="1688428800000" data-listing-file-modified-sort="1740898760932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1630">
+<div class="thumbnail">
+<p><a href="./posts/2023-07-04-augmented-language-models.html" class="no-external"></a></p><a href="./posts/2023-07-04-augmented-language-models.html" class="no-external">
+<p><img loading="lazy" src="./images/augmenting llms.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-07-04-augmented-language-models.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-07-04-augmented-language-models.html" class="no-external">Augmenting Large Language Models: Expanding Context and Enhancing Relevance</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-07-04-augmented-language-models.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('machine-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZS1sZWFybmluZw=='); return false;">
 machine-learning
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">
 NLP
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLM'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('TExN'); return false;">
 LLM
 </div>
 </div>
-<a href="./posts/2023-07-04-augmented-language-models.html">
 <div class="listing-description">
-With the rise of ChatGPT and other large language models (LLMs), the potential for AI to surpass human capabilities has become a topic of both fascination and concern. While…
+<a href="./posts/2023-07-04-augmented-language-models.html" class="no-external">With the rise of ChatGPT and other large language models (LLMs), the potential for AI to surpass human capabilities has become a topic of both fascination and concern. While…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-07-04-augmented-language-models.html">
+<a href="./posts/2023-07-04-augmented-language-models.html" class="no-external">
 <div class="listing-date">
 Jul 4, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="machine-learning,NLP,deep-learning" data-listing-date-sort="1678856400000" data-listing-file-modified-sort="1678873925928" data-listing-reading-time-sort="4.59">
+<div class="quarto-post image-right" data-index="2" data-categories="bWFjaGluZS1sZWFybmluZyUyQ05MUCUyQ2RlZXAtbGVhcm5pbmc=" data-listing-date-sort="1678838400000" data-listing-file-modified-sort="1740898760932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="918">
 <div class="thumbnail">
-<p><a href="./posts/2023-05-15-gpt4-summary.html"> <img src="./images/gpt-4.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-05-15-gpt4-summary.html" class="no-external"></a></p><a href="./posts/2023-05-15-gpt4-summary.html" class="no-external">
+<p><img loading="lazy" src="./images/gpt-4.jpeg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-05-15-gpt4-summary.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-05-15-gpt4-summary.html">
 <h3 class="no-anchor listing-title">
-Brief overview of GPT-4
+<a href="./posts/2023-05-15-gpt4-summary.html" class="no-external">Brief overview of GPT-4</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-05-15-gpt4-summary.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('machine-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZS1sZWFybmluZw=='); return false;">
 machine-learning
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">
 NLP
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2023-05-15-gpt4-summary.html">
 <div class="listing-description">
-Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its…<code></code>
+<a href="./posts/2023-05-15-gpt4-summary.html" class="no-external">Since the release of ChatGPT, there has been significant interest and discussion within the broader AI and natural language processing communities regarding its…<code></code></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-05-15-gpt4-summary.html">
+<a href="./posts/2023-05-15-gpt4-summary.html" class="no-external">
 <div class="listing-date">
 Mar 15, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="NLP,deep-learning" data-listing-date-sort="1666155600000" data-listing-file-modified-sort="1672283328343" data-listing-reading-time-sort="9.4">
+<div class="quarto-post image-right" data-index="3" data-categories="TkxQJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1666137600000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
 <div class="thumbnail">
-<p><a href="./posts/2022-10-19-text-summarization-nlp.html"> <img src="./images/text-summarization.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external"></a></p><a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external">
+<p><img loading="lazy" src="./images/text-summarization.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-10-19-text-summarization-nlp.html">
 <h3 class="no-anchor listing-title">
-Text Summarization NLP
+<a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external">Text Summarization NLP</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">
 NLP
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2022-10-19-text-summarization-nlp.html">
 <div class="listing-description">
-Text summarization is one of the Natural Language Processing (NLP) tasks where documents/texts are shortened automatically while holding the same semantic meaning.…
+<a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external">Text summarization is one of the Natural Language Processing (NLP) tasks where documents/texts are shortened automatically while holding the same semantic meaning.…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-10-19-text-summarization-nlp.html">
+<a href="./posts/2022-10-19-text-summarization-nlp.html" class="no-external">
 <div class="listing-date">
 Oct 19, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="NLP,deep-learning" data-listing-date-sort="1635138000000" data-listing-file-modified-sort="1672213423760" data-listing-reading-time-sort="3.71">
+<div class="quarto-post image-right" data-index="4" data-categories="TkxQJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1635120000000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="742">
 <div class="thumbnail">
-<p><a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html"> <img src="./images/autocorrect_example.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external"></a></p><a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external">
+<p><img loading="lazy" src="./images/autocorrect_example.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html">
 <h3 class="no-anchor listing-title">
-Autocorrect and Minimum Edit Distance
+<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external">Autocorrect and Minimum Edit Distance</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">
 NLP
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html">
 <div class="listing-description">
-This is my brief note from <em>DeepLearning.AI’s</em> NLP Specialization Course.
+<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external">This is my brief note from <em>DeepLearning.AI’s</em> NLP Specialization Course.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html">
+<a href="./posts/2021-10-25-autocorrect-and-minimum-edit-distance.html" class="no-external">
 <div class="listing-date">
 Oct 25, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="computer-vision,deep-learning" data-listing-date-sort="1627362000000" data-listing-file-modified-sort="1672213440358" data-listing-reading-time-sort="4.595">
+<div class="quarto-post image-right" data-index="5" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1627344000000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="919">
 <div class="thumbnail">
-<p><a href="./posts/2021-07-27-illustrated-vision-transformers.html"> <img src="./images/vision_transformer.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external"></a></p><a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external">
+<p><img loading="lazy" src="./images/vision_transformer.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-07-27-illustrated-vision-transformers.html">
 <h3 class="no-anchor listing-title">
-Illustrated Vision Transformers
+<a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external">Illustrated Vision Transformers</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2021-07-27-illustrated-vision-transformers.html">
 <div class="listing-description">
-Ever since Transformer was introduced in 2017, there has been a huge success in the field of Natural Language Processing (NLP). Almost all NLP tasks use Transformers and…
+<a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external">Ever since Transformer was introduced in 2017, there has been a huge success in the field of Natural Language Processing (NLP). Almost all NLP tasks use Transformers and…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-07-27-illustrated-vision-transformers.html">
+<a href="./posts/2021-07-27-illustrated-vision-transformers.html" class="no-external">
 <div class="listing-date">
 Jul 27, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1616734800000" data-listing-file-modified-sort="1672213456379" data-listing-reading-time-sort="4.505">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1616716800000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="901">
 <div class="thumbnail">
-<p><a href="./posts/2021-03-26-simclr-explained.html"> <img src="./images/contrastive-puzzle.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/2021-03-26-simclr-explained.html" class="no-external"></a></p><a href="./posts/2021-03-26-simclr-explained.html" class="no-external">
+<p><img loading="lazy" src="./images/contrastive-puzzle.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/2021-03-26-simclr-explained.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-03-26-simclr-explained.html">
 <h3 class="no-anchor listing-title">
-Paper Explanation: A Simple Framework for Contrastive Learning of Visual Representations (simCLR)
+<a href="./posts/2021-03-26-simclr-explained.html" class="no-external">Paper Explanation: A Simple Framework for Contrastive Learning of Visual Representations (simCLR)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-03-26-simclr-explained.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-Various self-supervised learning methods have been proposed in recent years for learning image…
+<a href="./posts/2021-03-26-simclr-explained.html" class="no-external">Various self-supervised learning methods have been proposed in recent years for learning image representations. Though a lot of methods have been proposed, the performance…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-03-26-simclr-explained.html">
+<a href="./posts/2021-03-26-simclr-explained.html" class="no-external">
 <div class="listing-date">
 Mar 26, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1609480800000" data-listing-file-modified-sort="1672213473439" data-listing-reading-time-sort="3.64">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1609459200000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="728">
 <div class="thumbnail">
-<p><a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html"> <img src="./images/residual-block.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external"></a></p><a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external">
+<p><img loading="lazy" src="./images/residual-block.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html">
 <h3 class="no-anchor listing-title">
-Deep Residual Learning for Image Recognition (ResNet paper explained)
+<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external">Deep Residual Learning for Image Recognition (ResNet paper explained)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-Deep Neural Networks tend to provide more accuracy as the number…<i></i>
+<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external">Deep Neural Networks tend to provide more accuracy as the number of layers increases. But, as we go more deeper in the network, the accuracy of the network decreases instead…<i></i></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html">
+<a href="./posts/2021-01-01-deep-residual-learning-for-image-recognition-resnet-paper-explained.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="deep-learning,self-supervised-learning" data-listing-date-sort="1607407200000" data-listing-file-modified-sort="1672204069351" data-listing-reading-time-sort="5.905">
+<div class="quarto-post image-right" data-index="8" data-categories="ZGVlcC1sZWFybmluZyUyQ3NlbGYtc3VwZXJ2aXNlZC1sZWFybmluZw==" data-listing-date-sort="1607385600000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1181">
 <div class="thumbnail">
-<p><a href="./posts/2020-12-08-self-supervised-learning.html"> <img src="./images/self-supervised-learning.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external"></a></p><a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external">
+<p class="card-img-top"><img src="images/self-supervised-learning.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-12-08-self-supervised-learning.html">
 <h3 class="no-anchor listing-title">
-Self-supervised Learning
+<a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external">Self-supervised Learning</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('self-supervised-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('c2VsZi1zdXBlcnZpc2VkLWxlYXJuaW5n'); return false;">
 self-supervised-learning
 </div>
 </div>
-<a href="./posts/2020-12-08-self-supervised-learning.html">
 <div class="listing-description">
-I have been exploring self-supervised learning and been through papers and blogs to understand it. Self-supervised learning is considered the next big thing in deep learning…
+<a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external">I have been exploring self-supervised learning and been through papers and blogs to understand it. Self-supervised learning is considered the next big thing in deep learning…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-12-08-self-supervised-learning.html">
+<a href="./posts/2020-12-08-self-supervised-learning.html" class="no-external">
 <div class="listing-date">
 Dec 8, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="deep-learning" data-listing-date-sort="1600664400000" data-listing-file-modified-sort="1672214585837" data-listing-reading-time-sort="5.95">
+<div class="quarto-post image-right" data-index="9" data-categories="ZGVlcC1sZWFybmluZw==" data-listing-date-sort="1600646400000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1190">
 <div class="thumbnail">
-<p><a href="./posts/2020-09-21-mobilenet-architecture-explained.html"> <img src="./images/layers-in-mobilenet.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external"></a></p><a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external">
+<p><img loading="lazy" src="./images/layers-in-mobilenet.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-09-21-mobilenet-architecture-explained.html">
 <h3 class="no-anchor listing-title">
-MobileNet Architecture Explained
+<a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external">MobileNet Architecture Explained</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-09-21-mobilenet-architecture-explained.html">
 <div class="listing-description">
-In this blog post, I will try to write about the MobileNets and its architecture. MobileNet uses depthwise separable convolutions…
+<a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external">In this blog post, I will try to write about the MobileNets and its architecture. MobileNet uses depthwise separable convolutions instead of standard convolution to reduce…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-09-21-mobilenet-architecture-explained.html">
+<a href="./posts/2020-09-21-mobilenet-architecture-explained.html" class="no-external">
 <div class="listing-date">
 Sep 21, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1598158800000" data-listing-file-modified-sort="1672214683336" data-listing-reading-time-sort="3.58">
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1598140800000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="716">
 <div class="thumbnail">
-<p><a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html"> <img src="./images/style-transfer.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external"></a></p><a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external">
+<p><img loading="lazy" src="./images/style-transfer.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html">
 <h3 class="no-anchor listing-title">
-Neural style transfer and its working
+<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external">Neural style transfer and its working</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-Have you ever used an app called Prisma that styles your image using popular paintings and…
+<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external">Have you ever used an app called Prisma that styles your image using popular paintings and turns your photo stunning? If that’s the case then, the app you are using is the…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html">
+<a href="./posts/2020-08-23-neural-style-transfer-and-its-working.html" class="no-external">
 <div class="listing-date">
 Aug 23, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="computer-vision,deep-learning" data-listing-date-sort="1597467600000" data-listing-file-modified-sort="1672214846052" data-listing-reading-time-sort="1.935">
+<div class="quarto-post image-right" data-index="11" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1597449600000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387">
 <div class="thumbnail">
-<p><a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html"> <img src="./images/gan_generator.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external"></a></p><a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external">
+<p><img loading="lazy" src="./images/gan_generator.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html">
 <h3 class="no-anchor listing-title">
-Deep Convolutional Generative Adversarial Networks (DCGANs)
+<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external">Deep Convolutional Generative Adversarial Networks (DCGANs)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html">
 <div class="listing-description">
-DCGAN (Deep Convolutional General Adversarial Networks) uses convolutional layers in its design.
+<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external">DCGAN (Deep Convolutional General Adversarial Networks) uses convolutional layers in its design.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html">
+<a href="./posts/2020-08-15-deep-convolutional-general-adversarial-networks-dcgans.html" class="no-external">
 <div class="listing-date">
 Aug 15, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="computer-vision,deep-learning" data-listing-date-sort="1596517200000" data-listing-file-modified-sort="1672818773376" data-listing-reading-time-sort="6.195">
+<div class="quarto-post image-right" data-index="12" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1596499200000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1239">
 <div class="thumbnail">
-<p><a href="./posts/2020-08-04-general-adversarial-networks-gans.html"> <img src="./images/GAN.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external"></a></p><a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external">
+<p><img loading="lazy" src="./images/GAN.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-08-04-general-adversarial-networks-gans.html">
 <h3 class="no-anchor listing-title">
-General Adversarial Networks (GANs)
+<a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external">General Adversarial Networks (GANs)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-08-04-general-adversarial-networks-gans.html">
 <div class="listing-description">
-“<strong>General Adversarial Nets</strong> is the most interesting idea in the last 10 years in machine learning”. This was the statement from Yann LeCun regarding GANs when Ian…
+<a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external">“<strong>General Adversarial Nets</strong> is the most interesting idea in the last 10 years in machine learning”. This was the statement from Yann LeCun regarding GANs when Ian Goodfellow…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-08-04-general-adversarial-networks-gans.html">
+<a href="./posts/2020-08-04-general-adversarial-networks-gans.html" class="no-external">
 <div class="listing-date">
 Aug 4, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="computer-vision,deep-learning" data-listing-date-sort="1591333200000" data-listing-file-modified-sort="1672214902760" data-listing-reading-time-sort="13.355">
+<div class="quarto-post image-right" data-index="13" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1591315200000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2671">
 <div class="thumbnail">
-<p><a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html"> <img src="./images/we-need-to-go-deeper.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external"></a></p><a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external">
+<p><img loading="lazy" src="./images/we-need-to-go-deeper.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html">
 <h3 class="no-anchor listing-title">
-Paper Explanation: Going deeper with Convolutions (GoogLeNet)
+<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external">Paper Explanation: Going deeper with Convolutions (GoogLeNet)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html">
 <div class="listing-description">
-Google proposed a deep Convolution Neural Network named inception that achieved top results for classification and detection in ILSVRC 2014.
+<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external">Google proposed a deep Convolution Neural Network named inception that achieved top results for classification and detection in ILSVRC 2014.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html">
+<a href="./posts/2020-06-05-paper-explanation-going-deeper-with-convolutions-googlenet.html" class="no-external">
 <div class="listing-date">
 Jun 5, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="computer-vision,deep-learning" data-listing-date-sort="1589000400000" data-listing-file-modified-sort="1672214891938" data-listing-reading-time-sort="3.495">
+<div class="quarto-post image-right" data-index="14" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1588982400000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="700">
 <div class="thumbnail">
-<p><a href="./posts/2020-05-09-vggnet-architecture-explained.html"> <img src="./images/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external"></a></p><a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external">
+<p><img loading="lazy" src="./images/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-05-09-vggnet-architecture-explained.html">
 <h3 class="no-anchor listing-title">
-VGGNet Architecture Explained
+<a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external">VGGNet Architecture Explained</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-05-09-vggnet-architecture-explained.html">
 <div class="listing-description">
-VGGNet is a Convolutional Neural Network architecture proposed by Karen Simonyan and Andrew Zisserman of University of…
+<a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external">VGGNet is a Convolutional Neural Network architecture proposed by Karen Simonyan and Andrew Zisserman of University of Oxford in 2014. This paper mailny focuses in the…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-05-09-vggnet-architecture-explained.html">
+<a href="./posts/2020-05-09-vggnet-architecture-explained.html" class="no-external">
 <div class="listing-date">
 May 9, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="computer-vision,deep-learning" data-listing-date-sort="1587704400000" data-listing-file-modified-sort="1672214882625" data-listing-reading-time-sort="3.815">
+<div class="quarto-post image-right" data-index="15" data-categories="Y29tcHV0ZXItdmlzaW9uJTJDZGVlcC1sZWFybmluZw==" data-listing-date-sort="1587686400000" data-listing-file-modified-sort="1740898760931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="763">
 <div class="thumbnail">
-<p><a href="./posts/2020-04-24-alexnet-architecture-explained.html"> <img src="./images/AlexNet-1.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external"></a></p><a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external">
+<p><img loading="lazy" src="./images/AlexNet-1.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-04-24-alexnet-architecture-explained.html">
 <h3 class="no-anchor listing-title">
-AlexNet Architecture Explained
+<a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external">AlexNet Architecture Explained</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('computer-vision'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXItdmlzaW9u'); return false;">
 computer-vision
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('deep-learning'); return false;">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcC1sZWFybmluZw=='); return false;">
 deep-learning
 </div>
 </div>
-<a href="./posts/2020-04-24-alexnet-architecture-explained.html">
 <div class="listing-description">
-AlexNet famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% vs 26.2%(second place) error rates). Here is the link to original paper.
+<a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external">AlexNet famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% vs 26.2%(second place) error rates). Here is the link to original paper.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-04-24-alexnet-architecture-explained.html">
+<a href="./posts/2020-04-24-alexnet-architecture-explained.html" class="no-external">
 <div class="listing-date">
 Apr 24, 2020
 </div>
@@ -712,6 +761,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -780,13 +856,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -813,12 +891,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -850,11 +931,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nepalprabin\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -864,8 +982,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -877,9 +1004,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -920,6 +1282,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

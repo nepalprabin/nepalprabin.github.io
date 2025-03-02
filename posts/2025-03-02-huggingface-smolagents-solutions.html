@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2020-08-23">
+<meta name="dcterms.date" content="2025-03-02">
 
-<title>Neural style transfer and its working – Prabin Nepal</title>
+<title>Huggingface AI Agents Quiz Solutions – Prabin Nepal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,8 +74,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d75320580429fd03ccc14abf5aea7e44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-03cff2e87a80ce85282700c0d3d2a4d3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0eef1fa8f27bfaf4b3ff3087f8253d90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-4c2af46c8a662c5db3a8fb2e651fefa0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,42 +113,13 @@ gtag('js', new Date());
 gtag('config', 'G-5HCLVN4PVB', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Neural style transfer and its working – Prabin Nepal">
+<meta property="og:title" content="Huggingface AI Agents Quiz Solutions – Prabin Nepal">
 <meta property="og:description" content="Personal website of Prabin Nepal">
-<meta property="og:image" content="https://nepalprabin.github.io/images/style-transfer.png">
+<meta property="og:image" content="https://nepalprabin.github.io/images/ai_agents.png">
 <meta property="og:site_name" content="Prabin Nepal">
-<meta property="og:image:height" content="299">
+<meta property="og:image:height" content="768">
 <meta property="og:image:width" content="1024">
 </head>
 
@@ -195,8 +166,12 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Neural style transfer and its working</h1>
-                      </div>
+      <h1 class="title">Huggingface AI Agents Quiz Solutions</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">llms</div>
+                <div class="quarto-category">agents</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -206,7 +181,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 23, 2020</p>
+        <p class="date">March 2, 2025</p>
       </div>
     </div>
     
@@ -225,81 +200,101 @@ window.Quarto = {
 
 
 
-<p>Have you ever used an app called Prisma that styles your image using popular paintings and turns your photo stunning? If that’s the case then, the app you are using is the result of style transfer; a computer vision technique that combines your images with artistic style.</p>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h2>
-<p>Style transfer is a computer vision technique that takes two images: content image and style image, combines them to form a resulting image that style the image based on style image taking contents from the content image.</p>
-<p>Here is how it looks like:</p>
-<p align="center">
-<img src="../images/style-transfer.png">
-</p>
-<p>The content image you can see above is Van Gogh’s Starry Night Painting and the style image a image from Tubingen university from Germany. Resultant image is shown on the right side that used content of content image and is styled using style image.</p>
-<section id="now-lets-get-into-the-working-of-neural-style-transfer" class="level3">
-<h3 class="anchored" data-anchor-id="now-lets-get-into-the-working-of-neural-style-transfer">Now let’s get into the working of neural style transfer</h3>
-<p>Neural Style Transfer is based on Deep Neural Network that create images of high perpetual quality. It uses neural network to separate and recombine content and style of images that we feed to obtain the desired result. The original paper uses 19 layer VGG network comprising of 16 convolutional layers, 5 max-pooling layers and 3 fully connected layers.</p>
-<p align="center">
-<img src="../images/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg">
-</p>
-<p align="center">
-Fig. A 19 layer VGG network <a href="http://researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356">source</a>
-</p>
+<p>I have been diving into AI agents through Huggingface’s AI Agents Course. This course offers a comprehensive understanding of how to build and deploy AI agents using the <code>smolagents</code> library. In this blog, I’ll share insights from the course (Unit 2) and provide code snippets to illustrate key concepts.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is the course link if anyone is interested. <a href="https://huggingface.co/learn/agents-course/unit0/introduction">AI Agents Course</a></p>
+</div>
+</div>
+<section id="create-a-basic-code-agent-with-web-search-capability" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-basic-code-agent-with-web-search-capability">Create a Basic Code Agent with Web Search Capability</h2>
+<p>One of the foundational exercises involves creating a CodeAgent equipped with web search capabilities. This agent leverages the DuckDuckGoSearchTool to perform web searches, enabling it to fetch real-time information. Here’s how you can set it up:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">    # Create a CodeAgent with DuckDuckGo search capability</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">    from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">    agent = CodeAgent(</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">        tools=[DuckDuckGoSearchTool()],           # Add search tool here</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">        model=HfApiModel("Qwen/Qwen2.5-Coder-32B-Instruct")          # Add model here</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this snippet, we initialize a CodeAgent with the DuckDuckGoSearchTool, allowing the agent to perform web searches to answer queries.</p>
 </section>
+<section id="set-up-a-multi-agent-system-with-manager-and-web-search-agents" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-a-multi-agent-system-with-manager-and-web-search-agents">Set Up a Multi-Agent System with Manager and Web Search Agents</h2>
+<p>Multi-Agent systems are the agents that are specialized on complex tasks with more scalable and robust nature. In <code>smolagents</code>, various agents can be integrated to produce Python code, invoke external tools, conduct web searches, and more. By coordinating these agents, it’s possible to develop robust workflows. A typical multi-agent system includes:</p>
+<pre><code>    - A manager Agent
+    - A code interpreter Agent
+    - A web Search Agent</code></pre>
+<p>Multi-agent system allows to separate memories between different sub-tasks and provide great benefits. Firstly, each agent are more focused on its core taks and secondly, separating memories reduces the count of input tokens resulting in reducing latency and cost. Below is the multi-agent system when <code>web_agent</code> performs search and <code>manager_agent</code> gives data analysis capabilities. Also, we can import dependencies (like python libraries) that helps to perform the tasks.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents <span class="im">import</span> CodeAgent, ToolCallingAgent, DuckDuckGoSearchTool, HfApiModel, VisitWebpageTool</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    web_agent <span class="op">=</span> ToolCallingAgent(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        tools<span class="op">=</span>[DuckDuckGoSearchTool(), VisitWebpageTool()], </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>HfApiModel(model_id<span class="op">=</span><span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        max_steps<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">"search"</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">"Agent to perform web searches and visit webpages."</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    manager_agent <span class="op">=</span> CodeAgent(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>HfApiModel(model_id<span class="op">=</span><span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        managed_agents<span class="op">=</span>[web_agent],</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        additional_authorized_imports<span class="op">=</span>[<span class="st">"pandas"</span>, <span class="st">"time"</span>, <span class="st">"numpy"</span>] <span class="co"># Corrected imports</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-exactly-do-we-obtain-such-images" class="level2">
-<h2 class="anchored" data-anchor-id="how-exactly-do-we-obtain-such-images">How exactly do we obtain such images?</h2>
-<p>Our goal here is to apply style over our content image. We are not training any neural network in this case, rather we start from a blank image and optimize the cost function by changing the pixel values of the image. The cost function contains two losses: Content loss and Style loss.</p>
-<p>Considering c as the content image and x as the style transferred image, content loss tends to <span class="math inline">\(0\)</span> when <span class="math inline">\(x\)</span> and <span class="math inline">\(c\)</span> are close to each other and increases when these value gets increased.</p>
-<p>Given the original image <span class="math inline">\(vec{p}\)</span> and generated image <span class="math inline">\(vec{x}\)</span>, we can define the loss generated by the content image as:</p>
-<p align="center">
-<img src="https://miro.medium.com/max/681/1*Sbis79TMJ7f7qIetlEAqqA.png">
-</p>
-<p>Content loss takes content weight which is a scalar that gives weighting for the content loss, content_current that gives features of the current image. content_current is the Pytorch tensor having shape (1, <span class="math inline">\(C_l\)</span>, <span class="math inline">\(H_l\)</span>, <span class="math inline">\(W_l\)</span>), where<br>
-<span class="math inline">\(C_l\)</span> is the number of channels in layer <span class="math inline">\(l\)</span>, <span class="math inline">\(H_l\)</span> and <span class="math inline">\(W_l\)</span> are width and height.</p>
+<section id="configure-agent-security-settings" class="level2">
+<h2 class="anchored" data-anchor-id="configure-agent-security-settings">Configure Agent Security Settings</h2>
+<p>Security is a crucial aspect when deploying AI agents, especially when they execute code. Below code snippet uses E2B to run code in a sandboxed environment. It is a remote execution that run the code in a isolated container.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents <span class="im">import</span> CodeAgent, HfApiModel</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents.sandbox <span class="im">import</span> E2BSandbox</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> HfApiModel(<span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    agent <span class="op">=</span> CodeAgent(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        tools<span class="op">=</span>[],</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>model,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        sandbox<span class="op">=</span>E2BSandbox(),  <span class="co"># Configure the sandbox</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        additional_authorized_imports<span class="op">=</span>[<span class="st">"numpy"</span>],  <span class="co"># Authorize numpy import</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="content-loss-in-python" class="level1">
-<h1>Content loss in python</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> content_loss(content_weight, content_current, content_original):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> torch.<span class="bu">sum</span>(content_weight <span class="op">*</span> (content_current<span class="op">-</span>content_original)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After computing content loss, we can compute style loss.<br>
-To compute style loss, we need to first compute Gram matrix <span class="math inline">\(G\)</span>. Gram matrix represents the correlation between responses of each filter. Given a feature map <span class="math inline">\(F^l\)</span> of shape <span class="math inline">\((C_l, M_l)\)</span>, the Gram matrix is given by:</p>
-<p><span class="math display">\[G_{ij}^\ell  = \sum_k F^{\ell}_{ik} F^{\ell}_{jk}\]</span></p>
-<p>Gram matrix in python:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gram_matrix(features, normalize<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    N, C, H, W <span class="op">=</span> features.size()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> features.reshape(N, C,<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    gram_matrix <span class="op">=</span> torch.zeros([N,C,C]).to(features.device).to(features.dtype)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      gram_matrix[i,:] <span class="op">=</span> torch.mm( features[i,:], features[i,:].t())</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (normalize):</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        gram_matrix <span class="op">/=</span> <span class="bu">float</span>(H<span class="op">*</span>W<span class="op">*</span>C)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> gram_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now implementing style loss:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> style_loss(feats, style_layers, style_targets, style_weights):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, layer <span class="kw">in</span> <span class="bu">enumerate</span>(style_layers):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      gram_feat <span class="op">=</span> gram_matrix(feats[layer])</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      loss <span class="op">+=</span> (style_weights[i] <span class="op">*</span> torch.<span class="bu">sum</span>((gram_feat<span class="op">-</span>style_targets[i])<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To increase the smoothness in the image, we can use another term to our loss that penalizes total variation in the pixel values. We can compute the “total variation” as the sum of the squares of differences in the pixel values for all pairs of pixels that are next to each other (horizontally or vertically). Here we sum the total-variation regualarization for each of the 3 input channels (RGB), and weight the total summed loss by the total variation weight,&nbsp;w_t</p>
-<p>Total variational loss in python</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tv_loss(img, tv_weight):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  loss <span class="op">+=</span> torch.<span class="bu">sum</span>((img[:,:,<span class="dv">1</span>:,:]<span class="op">-</span>img[:,:,:<span class="op">-</span><span class="dv">1</span>,:])<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  loss <span class="op">+=</span> torch.<span class="bu">sum</span>((img[:,:,:,<span class="dv">1</span>:]<span class="op">-</span>img[:,:,:,:<span class="op">-</span><span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  loss <span class="op">*=</span> tv_weight</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> los</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Combining above snippets together, we can generate resultant image using content and style images. The complete code is available on <a href="https://github.com/nepalprabin/deeplearning-paper-implementation/blob/master/StyleTransfer/Style_Transfer.ipynb">github</a>. Code is the homework solution for <a href="https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/">Deep Learning for Computer Vision</a> taught by Justin Johnson.</p>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
-<ul>
-<li><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf">Image Style Transfer Using Convolutional Neural Networks</a></li>
-<li><a href="https://arxiv.org/abs/1508.06576">A Neural Algorithm of Artistic Style</a></li>
-<li><a href="https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/">Deep Learning for Computer Vision</a></li>
-</ul>
+<section id="implement-a-tool-calling-agent" class="level2">
+<h2 class="anchored" data-anchor-id="implement-a-tool-calling-agent">Implement a Tool-Calling Agent</h2>
+<p>Similar to <code>CodeAgent</code>, <code>ToolCallingAgent</code> is another type of agent available in smolagent library. CodeAgent uses Python code snippets whereas ToolCallingAgent use built-in tool-calling capabilities of LLM providers and generate JSON structures.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents <span class="im">import</span> ToolCallingAgent, HfApiModel, DuckDuckGoSearchTool</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    agent <span class="op">=</span> ToolCallingAgent(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        tools<span class="op">=</span>[DuckDuckGoSearchTool()],  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>HfApiModel(model_id<span class="op">=</span><span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>),  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">"SearchAgent"</span>,  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">"An agent that uses DuckDuckGo to search the web."</span>,  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        max_steps<span class="op">=</span><span class="dv">5</span>,  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="set-up-model-integration" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-model-integration">Set Up Model Integration</h2>
+<p>LLM models are the most important aspect when creating AI agents. There are many model availables for various tasks and domains. So we can easily integrate models that is required for our task. Below code snippet switches between two different models providers.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents <span class="im">import</span> HfApiModel, LiteLLMModel</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize Hugging Face model</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    hf_model <span class="op">=</span> HfApiModel(model_id<span class="op">=</span><span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize LiteLLM model as an alternative model</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    other_model <span class="op">=</span> LiteLLMModel(model_id<span class="op">=</span><span class="st">"anthropic/claude-3-sonnet"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the model to hf_model or alternative model</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> hf_model  <span class="co"># Alternatively, you can switch this to `other_model`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
