@@ -217,15 +217,13 @@ Note
 <section id="create-a-basic-code-agent-with-web-search-capability" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-basic-code-agent-with-web-search-capability">Create a Basic Code Agent with Web Search Capability</h2>
 <p>One of the foundational exercises involves creating a CodeAgent equipped with web search capabilities. This agent leverages the DuckDuckGoSearchTool to perform web searches, enabling it to fetch real-time information. Here’s how you can set it up:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">    # Create a CodeAgent with DuckDuckGo search capability</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">    from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">    agent = CodeAgent(</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">        tools=[DuckDuckGoSearchTool()],           # Add search tool here</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">        model=HfApiModel("Qwen/Qwen2.5-Coder-32B-Instruct")          # Add model here</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a CodeAgent with DuckDuckGo search capability</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> smolagents <span class="im">import</span> CodeAgent, DuckDuckGoSearchTool, HfApiModel</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    agent <span class="op">=</span> CodeAgent(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        tools<span class="op">=</span>[DuckDuckGoSearchTool()],           <span class="co"># Add search tool here</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>HfApiModel(<span class="st">"Qwen/Qwen2.5-Coder-32B-Instruct"</span>)          <span class="co"># Add model here</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this snippet, we initialize a CodeAgent with the DuckDuckGoSearchTool, allowing the agent to perform web searches to answer queries.</p>
 </section>
 <section id="set-up-a-multi-agent-system-with-manager-and-web-search-agents" class="level2">
