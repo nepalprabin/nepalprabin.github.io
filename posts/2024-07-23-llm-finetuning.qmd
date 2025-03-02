@@ -1,0 +1,13 @@
+---
+categories:
+  - leetcode
+date: "2023-12-12"
+image: /images/leetcode.png
+mainfont: serif
+title: 'Finetuning LLM using Llama 3.1'
+draft: true
+---
+
+## Fine Tuning
+
+Fine tuning is the process of

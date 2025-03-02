@@ -1,0 +1,12 @@
+---
+categories:
+  - machine-learning
+  - NLP
+  - deep-learning
+  - LLM
+date: "2023-11-10"
+image: /images/augmenting llms.png
+mainfont: serif
+title: 'Evaluating LLMs'
+draft: true
+---

@@ -1,0 +1,105 @@
+---
+categories:
+  - llms 
+  - agents
+date: "2025-03-02"
+image: /images/ai_agents.png
+mainfont: serif
+title: 'Huggingface AI Agents Quiz Solutions'
+format:
+  html:
+    code-fold: true
+jupyter: python3
+draft: false
+---
+
+I have been diving into AI agents through Huggingface's AI Agents Course. This course offers a comprehensive understanding of how to build and deploy AI agents using the ```smolagents``` library. In this blog, I'll share insights from the course (Unit 2) and provide code snippets to illustrate key concepts. 
+
+:::{.callout-note}
+Here is the course link if anyone is interested. [AI Agents Course
+](https://huggingface.co/learn/agents-course/unit0/introduction)
+:::
+
+## Create a Basic Code Agent with Web Search Capability
+One of the foundational exercises involves creating a CodeAgent equipped with web search capabilities. This agent leverages the DuckDuckGoSearchTool to perform web searches, enabling it to fetch real-time information. Here's how you can set it up:
+```python
+    # Create a CodeAgent with DuckDuckGo search capability
+    from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel
+
+    agent = CodeAgent(
+        tools=[DuckDuckGoSearchTool()],           # Add search tool here
+        model=HfApiModel("Qwen/Qwen2.5-Coder-32B-Instruct")          # Add model here
+    )
+```
+In this snippet, we initialize a CodeAgent with the DuckDuckGoSearchTool, allowing the agent to perform web searches to answer queries.
+
+## Set Up a Multi-Agent System with Manager and Web Search Agents
+Multi-Agent systems are the agents that are specialized on complex tasks with more scalable and robust nature. In ```smolagents```, various agents can be integrated to produce Python code, invoke external tools, conduct web searches, and more. By coordinating these agents, it's possible to develop robust workflows. A typical multi-agent system includes:
+
+        - A manager Agent
+        - A code interpreter Agent
+        - A web Search Agent
+Multi-agent system allows to separate memories between different sub-tasks and provide great benefits. Firstly, each agent are more focused on its core taks and secondly, separating memories reduces the count of input tokens resulting in reducing latency and cost. Below is the multi-agent system when ```web_agent``` performs search and ```manager_agent``` gives data analysis capabilities. Also, we can import dependencies (like python libraries) that helps to perform the tasks.
+```python
+    from smolagents import CodeAgent, ToolCallingAgent, DuckDuckGoSearchTool, HfApiModel, VisitWebpageTool
+
+    web_agent = ToolCallingAgent(
+        tools=[DuckDuckGoSearchTool(), VisitWebpageTool()], 
+        model=HfApiModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct"),
+        max_steps=10,
+        name="search", 
+        description="Agent to perform web searches and visit webpages."
+    )
+
+
+    manager_agent = CodeAgent(
+        model=HfApiModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct"),
+        managed_agents=[web_agent],
+        additional_authorized_imports=["pandas", "time", "numpy"] # Corrected imports
+    )
+```
+
+## Configure Agent Security Settings
+Security is a crucial aspect when deploying AI agents, especially when they execute code. Below code snippet uses E2B to run code in a sandboxed environment. It is a remote execution that run the code in a isolated container.
+```python
+    from smolagents import CodeAgent, HfApiModel
+    from smolagents.sandbox import E2BSandbox
+
+    model = HfApiModel("Qwen/Qwen2.5-Coder-32B-Instruct")
+
+    agent = CodeAgent(
+        tools=[],
+        model=model,
+        sandbox=E2BSandbox(),  # Configure the sandbox
+        additional_authorized_imports=["numpy"],  # Authorize numpy import
+    )
+```
+
+## Implement a Tool-Calling Agent
+Similar to ```CodeAgent```, ```ToolCallingAgent``` is another type of agent available in smolagent library. CodeAgent uses Python code snippets whereas ToolCallingAgent use built-in tool-calling capabilities of LLM providers and generate JSON structures.
+```python
+    from smolagents import ToolCallingAgent, HfApiModel, DuckDuckGoSearchTool
+
+    agent = ToolCallingAgent(
+        tools=[DuckDuckGoSearchTool()],  
+        model=HfApiModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct"),  
+        name="SearchAgent",  
+        description="An agent that uses DuckDuckGo to search the web.",  
+        max_steps=5,  
+    )
+```
+
+## Set Up Model Integration
+LLM models are the most important aspect when creating AI agents. There are many model availables for various tasks and domains. So we can easily integrate models that is required for our task. Below code snippet switches between two different models providers.
+```python
+    from smolagents import HfApiModel, LiteLLMModel
+
+    # Initialize Hugging Face model
+    hf_model = HfApiModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct")
+
+    # Initialize LiteLLM model as an alternative model
+    other_model = LiteLLMModel(model_id="anthropic/claude-3-sonnet")
+
+    # Set the model to hf_model or alternative model
+    model = hf_model  # Alternatively, you can switch this to `other_model`
+```
