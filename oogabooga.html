@@ -405,6 +405,18 @@ main.content { margin-top: 0 !important; }
             font-weight: bold;
         }
 
+        .romantic-message {
+            font-size: 1.8em;
+            color: #d63384;
+            margin-bottom: 20px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .step-section {
+            animation: fadeInScale 1s ease-out;
+        }
+
         .button-container {
             margin: 40px 0;
         }
@@ -431,6 +443,15 @@ main.content { margin-top: 0 !important; }
 
         .yes-button:active {
             transform: translateY(-2px) scale(1.02);
+        }
+
+        .curiosity-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .curiosity-btn:hover {
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
         }
 
         .response-container {
@@ -539,10 +560,54 @@ main.content { margin-top: 0 !important; }
         <div class="hearts-background" id="heartsBackground"></div>
         
         <div class="valentine-container">
-            <div id="questionSection">
+            <div id="introSection">
                 <div class="main-heart">💖</div>
                 <h1>Hey Beautiful! <span class="sparkle">✨</span></h1>
                 <div class="subtitle">I have something special to ask you...</div>
+                <div class="button-container">
+                    <button class="yes-button curiosity-btn" onclick="nextStep('step1')">What is it? 🤔</button>
+                </div>
+            </div>
+
+            <div id="step1" class="step-section" style="display: none;">
+                <div class="main-heart">🌹</div>
+                <div class="romantic-message">You know what I love about you?</div>
+                <div class="subtitle">Your smile lights up my entire world...</div>
+                <div class="button-container">
+                    <button class="yes-button curiosity-btn" onclick="nextStep('step2')">Tell me more 💫</button>
+                </div>
+            </div>
+
+            <div id="step2" class="step-section" style="display: none;">
+                <div class="main-heart">✨</div>
+                <div class="romantic-message">Every moment with you feels like magic</div>
+                <div class="subtitle">You make ordinary days extraordinary...</div>
+                <div class="button-container">
+                    <button class="yes-button curiosity-btn" onclick="nextStep('step3')">Aww 🥰</button>
+                </div>
+            </div>
+
+            <div id="step3" class="step-section" style="display: none;">
+                <div class="main-heart">💫</div>
+                <div class="romantic-message">You're not just beautiful on the outside...</div>
+                <div class="subtitle">Your heart, your kindness, your soul — everything about you is perfect to me.</div>
+                <div class="button-container">
+                    <button class="yes-button curiosity-btn" onclick="nextStep('step4')">You're so sweet 💕</button>
+                </div>
+            </div>
+
+            <div id="step4" class="step-section" style="display: none;">
+                <div class="main-heart">🦋</div>
+                <div class="romantic-message">You give me butterflies every single day</div>
+                <div class="subtitle">Even after all this time, my heart still skips a beat when I see you...</div>
+                <div class="button-container">
+                    <button class="yes-button curiosity-btn" onclick="nextStep('questionSection')">What's the question? 💭</button>
+                </div>
+            </div>
+
+            <div id="questionSection" style="display: none;">
+                <div class="main-heart">💕</div>
+                <div class="romantic-message">So here it is...</div>
                 <div class="question-text">Will you be my Valentine? 💕</div>
                 <div class="button-container">
                     <button class="yes-button" onclick="showResponse()">Yes! 💝</button>
@@ -602,17 +667,37 @@ main.content { margin-top: 0 !important; }
             setTimeout(createFloatingHeart, i * 200);
         }
 
-        function showResponse() {
-            const questionSection = document.getElementById('questionSection');
-            const responseSection = document.getElementById('responseSection');
-            
-            // Add exit animation
-            questionSection.style.animation = 'fadeInScale 0.5s ease-out reverse';
-            
+        let currentStep = 'introSection';
+
+        function nextStep(nextStepId) {
+            const current = document.getElementById(currentStep);
+            const next = document.getElementById(nextStepId);
+
+            current.style.animation = 'fadeInScale 0.5s ease-out reverse';
+
             setTimeout(() => {
-                questionSection.style.display = 'none';
+                current.style.display = 'none';
+                next.style.display = 'block';
+                next.style.animation = 'fadeInScale 1s ease-out';
+                currentStep = nextStepId;
+
+                // Add some hearts on each step
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(createFloatingHeart, i * 100);
+                }
+            }, 500);
+        }
+
+        function showResponse() {
+            const current = document.getElementById(currentStep);
+            const responseSection = document.getElementById('responseSection');
+
+            current.style.animation = 'fadeInScale 0.5s ease-out reverse';
+
+            setTimeout(() => {
+                current.style.display = 'none';
                 responseSection.style.display = 'block';
-                
+
                 // Create celebration burst
                 for (let i = 0; i < 50; i++) {
                     setTimeout(createFloatingHeart, i * 50);
