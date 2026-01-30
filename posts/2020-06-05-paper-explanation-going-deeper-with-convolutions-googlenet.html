@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,16 +68,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-2d2c3c1dc8fcebd689918bbad00a5354.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-a5cec38defc11f7561b05eff66b91810.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-960d9d362f81d399278ec3e29b622b37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e7f4145358ce1d0cd37d8d374dbb44f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -427,7 +428,7 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
 <h2 class="anchored" data-anchor-id="googlenet-implementation">GoogLeNet implementation</h2>
 <p>Having known about inception module and its inclusion in GoogLeNet architecture, we now implement GoogLeNet in <a href="http://tensorflow.org">tensorflow</a>. This implementation of GoogLeNet is inspired from analytics vidya <a href="https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/#:~:text=The%20paper%20proposes%20a%20new,which%20is%2027%20layers%20deep.&amp;text=1%C3%971%20Convolutional%20layer%20before%20applying%20another%20layer%2C%20which,mainly%20used%20for%20dimensionality%20reduction">article</a> on inception net.</p>
 <p>Importing the required libraries:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Layer</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Layer</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow.keras.backend <span class="im">as</span> K</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.datasets <span class="im">import</span> cifar10</span>
@@ -438,9 +439,9 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.utils <span class="im">import</span> np_utils</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.optimizers <span class="im">import</span> SGD</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.callbacks <span class="im">import</span> LearningRateScheduler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.callbacks <span class="im">import</span> LearningRateScheduler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Next we are using cifar10 dataset as our data.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_classes <span class="op">=</span> <span class="dv">10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_classes <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_cifar_data(img_rows, img_cols):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Loading training and validation datasets</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  (X_train, Y_train), (X_valid, Y_valid) <span class="op">=</span> cifar10.load_data()</span>
@@ -457,10 +458,10 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  Y_train <span class="op">=</span> X_valid <span class="op">/</span> <span class="fl">255.0</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> X_train, Y_train, X_valid, Y_valid</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>X_train, Y_trian, X_test, y_test <span class="op">=</span> load_cifar_data(<span class="dv">224</span>,<span class="dv">224</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>X_train, Y_trian, X_test, y_test <span class="op">=</span> load_cifar_data(<span class="dv">224</span>,<span class="dv">224</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Next comes our inception module</p>
 <p>Inception module contains 1x1 convolutions before 3x3 and 5x5 convolution operations. It takes different number of filters for different convolution operations and concatenate these operations to take into next layer.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inception_module(x, filters_1x1, filters_3x3_reduce, filters_3x3, filters_5x5_reduce, filters_5x5, filters_pool_proj, name<span class="op">=</span><span class="va">None</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inception_module(x, filters_1x1, filters_3x3_reduce, filters_3x3, filters_5x5_reduce, filters_5x5, filters_pool_proj, name<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  conv_1x1 <span class="op">=</span> Conv2D(filters_1x1, (<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">'relu'</span>, kernel_initializer<span class="op">=</span>kernel_init, bias_initializer<span class="op">=</span>bias_init)(x)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  conv_3x3 <span class="op">=</span> Conv2D(filters_3x3_reduce, (<span class="dv">1</span>,<span class="dv">1</span>), padding<span class="op">=</span><span class="st">'same'</span>, activation<span class="op">=</span><span class="st">'relu'</span>, kernel_initializer<span class="op">=</span>kernel_init, bias_initializer<span class="op">=</span>bias_init)(x)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  conv_3x3 <span class="op">=</span> Conv2D(filters_3x3, (<span class="dv">3</span>,<span class="dv">3</span>), padding<span class="op">=</span><span class="st">'same'</span>, activation<span class="op">=</span><span class="st">'relu'</span>, kernel_initializer<span class="op">=</span>kernel_init, bias_initializer<span class="op">=</span>bias_init)(conv_3x3)</span>
@@ -571,10 +572,10 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
 <span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Dropout(<span class="fl">0.4</span>)(x)</span>
 <span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Dense(<span class="dv">10</span>, activation<span class="op">=</span><span class="st">'softmax'</span>, name<span class="op">=</span><span class="st">'output'</span>)(x)</span>
 <span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model(input_layer, [x, x1, x2], name<span class="op">=</span><span class="st">'inception_v1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model(input_layer, [x, x1, x2], name<span class="op">=</span><span class="st">'inception_v1'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Getting the summary of the model</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">25</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">25</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>initial_lrate <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decay(epoch, steps<span class="op">=</span><span class="dv">100</span>):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    initial_lrate <span class="op">=</span> <span class="fl">0.01</span></span>
@@ -584,9 +585,9 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lrate</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sgd <span class="op">=</span> SGD(lr<span class="op">=</span>initial_lrate, momentum<span class="op">=</span><span class="fl">0.9</span>, nesterov<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>lr_sc <span class="op">=</span> LearningRateScheduler(decay, verbose<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(loss<span class="op">=</span>[<span class="st">'categorical_crossentropy'</span>, <span class="st">'categorical_crossentropy'</span>, <span class="st">'categorical_crossentropy'</span>], loss_weights<span class="op">=</span>[<span class="dv">1</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>], optimizer<span class="op">=</span>sgd, metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(loss<span class="op">=</span>[<span class="st">'categorical_crossentropy'</span>, <span class="st">'categorical_crossentropy'</span>, <span class="st">'categorical_crossentropy'</span>], loss_weights<span class="op">=</span>[<span class="dv">1</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>], optimizer<span class="op">=</span>sgd, metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Using our model to fit the training data</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(X_train, [y_train, y_train, y_train], validation_data<span class="op">=</span>(X_test, [y_test, y_test, y_test]), epochs<span class="op">=</span>epochs, batch_size<span class="op">=</span><span class="dv">256</span>, callbacks<span class="op">=</span>[lr_sc])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(X_train, [y_train, y_train, y_train], validation_data<span class="op">=</span>(X_test, [y_test, y_test, y_test]), epochs<span class="op">=</span>epochs, batch_size<span class="op">=</span><span class="dv">256</span>, callbacks<span class="op">=</span>[lr_sc])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>References</strong></p>
 <ul>
 <li><a href="https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/">https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/</a></li>
@@ -662,13 +663,14 @@ In ILSVRC 2014, GoogLeNet used 12x fewer parameters than <a href="https://prabin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
