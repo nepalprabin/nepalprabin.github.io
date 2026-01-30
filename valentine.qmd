@@ -1,0 +1,370 @@
+---
+title: "Will You Be My Valentine? 💕"
+author: "Prabin"
+date: "2025-02-14"
+format:
+  html:
+    page-layout: full
+    css: styles.css
+    navbar: false
+    title-block-style: none
+include-in-header:
+  text: |
+    <style>
+    #quarto-header, .navbar, header, nav, .quarto-title-block { display: none !important; }
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      min-height: 100vh !important;
+    }
+    .page-layout-full, main, #quarto-content, .content, .page-columns {
+      margin: 0 !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+    main.content { margin-top: 0 !important; }
+    </style>
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .valentine-wrapper {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-up 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .valentine-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .main-heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        .valentine-container h1 {
+            font-size: 3em;
+            color: #d63384;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .question-text {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin: 40px 0;
+        }
+
+        .yes-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.8em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .yes-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+
+        .yes-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .response-container {
+            display: none;
+            animation: revealResponse 1s ease-out;
+        }
+
+        @keyframes revealResponse {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .response-text {
+            font-size: 2.5em;
+            color: #d63384;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .love-message {
+            font-size: 1.3em;
+            color: #555;
+            line-height: 1.8;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .celebration-hearts {
+            font-size: 40px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .celebration-hearts span {
+            animation: bounce 1s infinite;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .signature {
+            font-size: 1.5em;
+            color: #d63384;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .valentine-container h1 {
+                font-size: 2em;
+            }
+            
+            .question-text {
+                font-size: 1.5em;
+            }
+            
+            .yes-button {
+                font-size: 1.4em;
+                padding: 15px 40px;
+            }
+            
+            .response-text {
+                font-size: 1.8em;
+            }
+            
+            .love-message {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="valentine-wrapper">
+        <div class="hearts-background" id="heartsBackground"></div>
+        
+        <div class="valentine-container">
+            <div id="questionSection">
+                <div class="main-heart">💖</div>
+                <h1>Hey Beautiful! <span class="sparkle">✨</span></h1>
+                <div class="subtitle">I have something special to ask you...</div>
+                <div class="question-text">Will you be my Valentine? 💕</div>
+                <div class="button-container">
+                    <button class="yes-button" onclick="showResponse()">Yes! 💝</button>
+                </div>
+            </div>
+
+            <div class="response-container" id="responseSection">
+                <div class="response-text">Yay! You said YES! 🎉</div>
+                
+                <div class="celebration-hearts">
+                    <span style="--delay: 0">❤️</span>
+                    <span style="--delay: 1">💕</span>
+                    <span style="--delay: 2">💖</span>
+                    <span style="--delay: 3">💗</span>
+                    <span style="--delay: 4">💝</span>
+                </div>
+
+                <div class="love-message">
+                    You light up my world like nobody else,<br>
+                    and I'm so grateful to have you as my Valentine.<br>
+                    Every moment with you is a treasure,<br>
+                    and I can't wait to celebrate our love together! 🌹
+                </div>
+
+                <div class="main-heart">💞</div>
+
+                <div class="signature">
+                    Forever yours,<br>
+                    Prabin 💕
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts in background
+        function createFloatingHeart() {
+            const heartsContainer = document.getElementById('heartsBackground');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝', '💞'][Math.floor(Math.random() * 6)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 13000);
+        }
+
+        // Create hearts continuously
+        setInterval(createFloatingHeart, 300);
+
+        // Initial hearts
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createFloatingHeart, i * 200);
+        }
+
+        function showResponse() {
+            const questionSection = document.getElementById('questionSection');
+            const responseSection = document.getElementById('responseSection');
+            
+            // Add exit animation
+            questionSection.style.animation = 'fadeInScale 0.5s ease-out reverse';
+            
+            setTimeout(() => {
+                questionSection.style.display = 'none';
+                responseSection.style.display = 'block';
+                
+                // Create celebration burst
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(createFloatingHeart, i * 50);
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+```
